@@ -5,7 +5,7 @@ export const eventRichDetails = [
     detailsImage: "/assets/events/algorithma.webp",
     tagline: "Think. Code. Conquer.",
     introduction:
-      "Algorithmia is a technical coding competition where participants will be given 5 programming questions to solve on the HackerEarth platform. You'll have 2 hours to solve as many as you can – so manage your time wisely, think strategically, and let your code do the talking.", // Renamed from 'description' to avoid confusion with eventsData.js's description
+      "Algorithmia is a technical coding competition where participants will be given 5 programming questions to solve on the HackerEarth platform. You'll have 90 minutes to solve as many as you can – so manage your time wisely, think strategically, and let your code do the talking.", // Renamed from 'description' to avoid confusion with eventsData.js's description
     durationDetails: {
       date: "T.B.A",
       time: "T.B.A",
