@@ -9,7 +9,7 @@ export const eventRichDetails = [
     durationDetails: {
       date: "T.B.A",
       time: "T.B.A",
-      duration: "2 Hours",
+      duration: "90 minutes",
       platform: "HackerEarth",
     },
     formatAndRules: [
