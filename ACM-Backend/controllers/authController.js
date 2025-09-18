@@ -1,6 +1,5 @@
 import {
   handleSignIn,
-  handleSignOut,
   requestSignUpOTP,
   verifySignUpOTP,
   forgotPasswordService,
@@ -157,12 +156,10 @@ export const resetPassword = async (req, res) => {
   } catch (error) {
     // ✅ MODIFIED: Specifically handle the invalid token error with a 400 status
     if (error.message.includes("Invalid or expired reset token")) {
-      return res
-        .status(400)
-        .json({
-          error:
-            "This password reset link is invalid or has already been used. Please request a new one.",
-        });
+      return res.status(400).json({
+        error:
+          "This password reset link is invalid or has already been used. Please request a new one.",
+      });
     }
     // For other errors, use the appropriate handler
     return handleMongoError(

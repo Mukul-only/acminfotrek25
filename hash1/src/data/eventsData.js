@@ -4,7 +4,7 @@
 export const events = [
   {
     id: "66817b2f3a4b5c6d7e8f9a01", // Changed from 1
-    title: "Algorithma",
+    title: "Algorithmia",
     image: "/assets/events/algorithma.webp",
     eventType: "technical",
     playerMode: "single player",
@@ -29,18 +29,10 @@ export const events = [
     subCategory: null,
     description: "Detailed description for Emoji charades...",
   },
-  {
-    id: "66817b2f3a4b5c6d7e8f9a04", // Changed from 4
-    title: "Crack the password",
-    image: "/assets/events/crack-password.webp",
-    eventType: "non-tech",
-    playerMode: "team based",
-    subCategory: null,
-    description: "Detailed description for Crack the password...",
-  },
+
   {
     id: "66817b2f3a4b5c6d7e8f9a05", // Changed from 5
-    title: "Reverse engineering",
+    title: "BackTrack",
     image: "/assets/events/reverse-engineering.webp",
     eventType: "technical",
     playerMode: "single player",
@@ -77,7 +69,7 @@ export const events = [
   },
   {
     id: "66817b2f3a4b5c6d7e8f9a10", // Changed from 10
-    title: "Treasure hunt round 2",
+    title: "Treasure hunt",
     image: "/assets/events/treasure-hunt.webp",
     eventType: "non-tech",
     playerMode: "team based",

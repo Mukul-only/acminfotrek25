@@ -232,7 +232,7 @@ const LoginPage = () => {
           </div>
 
           {/* Additional Features */}
-          <div className="mt-8 text-center">
+          {/* <div className="mt-8 text-center">
             <div className="flex justify-center space-x-8 text-sm text-neutral-400">
               <Link
                 to="/privacy"
@@ -253,7 +253,7 @@ const LoginPage = () => {
                 Help Center
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </Wrapper>
     </div>

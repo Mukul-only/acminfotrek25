@@ -44,10 +44,28 @@ const EventDetailsModal = ({ isOpen, onClose, event: basicEventData }) => {
     };
   }, [isOpen]);
 
+  // Handle ESC key press
+  useEffect(() => {
+    const handleEscKey = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleEscKey);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [isOpen, onClose]);
+
   if (!basicEventData) return null;
 
-  const handleOverlayClick = (e) => {
-    if (e.target === e.currentTarget) {
+  const handleBackdropClick = (e) => {
+    // Only close if clicking directly on the backdrop
+    if (e.target.classList.contains("modal-backdrop")) {
       onClose();
     }
   };
@@ -62,7 +80,6 @@ const EventDetailsModal = ({ isOpen, onClose, event: basicEventData }) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  // Minimal animation variants - only for modal open/close
   const backdropVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -81,20 +98,37 @@ const EventDetailsModal = ({ isOpen, onClose, event: basicEventData }) => {
     return "from-violet-500 to-purple-500";
   };
 
+  const getRoundColor = (roundNumber) => {
+    const colors = [
+      "from-blue-500 to-cyan-500",
+      "from-green-500 to-emerald-500",
+      "from-purple-500 to-violet-500",
+      "from-red-500 to-pink-500",
+      "from-yellow-500 to-orange-500",
+    ];
+    return colors[(roundNumber - 1) % colors.length];
+  };
+
+  // Check if this is a multi-round event
+  const hasRounds =
+    details?.rounds &&
+    Array.isArray(details.rounds) &&
+    details.rounds.length > 0;
+
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 md:p-6"
+          className="modal-backdrop fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 md:p-6"
           variants={backdropVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
           transition={{ duration: 0.2 }}
-          onClick={handleOverlayClick}
+          onClick={handleBackdropClick}
         >
-          {/* Simplified backdrop */}
-          <div className="absolute inset-0 bg-black/80 "></div>
+          {/* Backdrop */}
+          <div className="absolute inset-0 modal-backdrop bg-black/80"></div>
 
           <motion.div
             className="relative bg-gradient-to-br from-white/10 to-white/5 border backdrop-blur-2xl border-white/20 rounded-3xl shadow-2xl w-full max-w-6xl max-h-[90vh] flex flex-col overflow-hidden"
@@ -102,7 +136,7 @@ const EventDetailsModal = ({ isOpen, onClose, event: basicEventData }) => {
             transition={{ duration: 0.2 }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Static border */}
+            {/* Border */}
             <div
               className={`absolute inset-0 bg-gradient-to-r ${getEventTypeColor(
                 basicEventData.eventType
@@ -127,6 +161,7 @@ const EventDetailsModal = ({ isOpen, onClose, event: basicEventData }) => {
                   </h2>
                   <p className="text-sm text-neutral-300">
                     {capitalizeFirstLetter(basicEventData.eventType)} Event
+                    {hasRounds && ` • ${details.rounds.length} Rounds`}
                   </p>
                 </div>
               </div>
@@ -197,15 +232,27 @@ const EventDetailsModal = ({ isOpen, onClose, event: basicEventData }) => {
                         </div>
                       </div>
                     )}
-                    {basicEventData.subCategory && (
+                    {hasRounds ? (
                       <div className="p-3 border bg-white/5 rounded-xl border-white/10">
                         <div className="text-xs tracking-wider uppercase text-neutral-400">
-                          Category
+                          Rounds
                         </div>
                         <div className="text-sm font-semibold text-white">
-                          {capitalizeFirstLetter(basicEventData.subCategory)}
+                          {details.rounds.length} Round
+                          {details.rounds.length > 1 ? "s" : ""}
                         </div>
                       </div>
+                    ) : (
+                      basicEventData.subCategory && (
+                        <div className="p-3 border bg-white/5 rounded-xl border-white/10">
+                          <div className="text-xs tracking-wider uppercase text-neutral-400">
+                            Category
+                          </div>
+                          <div className="text-sm font-semibold text-white">
+                            {capitalizeFirstLetter(basicEventData.subCategory)}
+                          </div>
+                        </div>
+                      )
                     )}
                   </div>
                 </div>
@@ -258,53 +305,205 @@ const EventDetailsModal = ({ isOpen, onClose, event: basicEventData }) => {
                     </section>
                   )}
 
-                  {/* Format & Rules */}
-                  {details.formatAndRules?.length > 0 && (
-                    <section className="p-6 border bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-2xl border-orange-500/20">
-                      <h4 className="flex items-center gap-3 mb-4 text-xl font-bold text-white">
-                        <div className="p-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500">
-                          <div className="w-4 h-4 text-white">📋</div>
-                        </div>
-                        Format & Rules
-                      </h4>
-                      <div className="space-y-3">
-                        {details.formatAndRules.map((rule, index) => (
-                          <div
-                            key={index}
-                            className="flex items-start gap-3 p-3 bg-white/5 rounded-xl"
-                          >
-                            <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">
-                              {index + 1}
-                            </div>
-                            <p className="leading-relaxed text-neutral-300">
-                              {rule}
-                            </p>
-                          </div>
-                        ))}
+                  {/* Multi-Round Events */}
+                  {hasRounds ? (
+                    <section className="space-y-6">
+                      <div className="text-center">
+                        <h4 className="mb-2 text-2xl font-bold text-white">
+                          Event Rounds
+                        </h4>
+                        <p className="text-neutral-300">
+                          Complete all rounds to claim victory!
+                        </p>
                       </div>
+
+                      {details.rounds.map((round, index) => (
+                        <div
+                          key={round.roundNumber}
+                          className={`p-6 border bg-gradient-to-br ${getRoundColor(
+                            round.roundNumber
+                          )}/10 rounded-2xl border-${
+                            getRoundColor(round.roundNumber).split("-")[1]
+                          }-500/20`}
+                        >
+                          {/* Round Header */}
+                          <div className="flex items-center gap-4 mb-4">
+                            <div
+                              className={`p-3 rounded-2xl bg-gradient-to-r ${getRoundColor(
+                                round.roundNumber
+                              )}`}
+                            >
+                              <div className="text-xl font-bold text-white">
+                                R{round.roundNumber}
+                              </div>
+                            </div>
+                            <div>
+                              <h5 className="text-xl font-bold text-white">
+                                {round.roundName}
+                              </h5>
+                              {round.tagline && (
+                                <p className="text-sm text-neutral-300">
+                                  {round.tagline}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Round Introduction */}
+                          {round.introduction && (
+                            <div className="p-4 mb-6 bg-white/5 rounded-xl">
+                              <p className="leading-relaxed text-neutral-300">
+                                {round.introduction}
+                              </p>
+                            </div>
+                          )}
+
+                          {/* Round Details Grid */}
+                          <div className="grid gap-6 lg:grid-cols-2">
+                            {/* Format & Rules */}
+                            {round.formatAndRules?.length > 0 && (
+                              <div>
+                                <h6 className="flex items-center gap-2 mb-3 text-lg font-semibold text-white">
+                                  <div className="w-1.5 h-6 rounded-full bg-gradient-to-b from-orange-500 to-red-500"></div>
+                                  Format & Rules
+                                </h6>
+                                <div className="space-y-2">
+                                  {round.formatAndRules.map(
+                                    (rule, ruleIndex) => (
+                                      <div
+                                        key={ruleIndex}
+                                        className="flex items-start gap-3 p-3 bg-white/5 rounded-xl"
+                                      >
+                                        <div
+                                          className={`flex-shrink-0 w-5 h-5 bg-gradient-to-r ${getRoundColor(
+                                            round.roundNumber
+                                          )} rounded-full flex items-center justify-center text-white text-xs font-bold`}
+                                        >
+                                          {ruleIndex + 1}
+                                        </div>
+                                        <p className="text-sm leading-relaxed text-neutral-300">
+                                          {rule}
+                                        </p>
+                                      </div>
+                                    )
+                                  )}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Judging Criteria */}
+                            {round.judgingCriteria?.length > 0 && (
+                              <div>
+                                <h6 className="flex items-center gap-2 mb-3 text-lg font-semibold text-white">
+                                  <div className="w-1.5 h-6 rounded-full bg-gradient-to-b from-violet-500 to-purple-500"></div>
+                                  Judging Criteria
+                                </h6>
+                                <div className="space-y-2">
+                                  {round.judgingCriteria.map(
+                                    (criterion, critIndex) => (
+                                      <div
+                                        key={critIndex}
+                                        className="flex items-start gap-3 p-3 bg-white/5 rounded-xl"
+                                      >
+                                        <div
+                                          className={`flex-shrink-0 w-5 h-5 bg-gradient-to-r ${getRoundColor(
+                                            round.roundNumber
+                                          )} rounded-full flex items-center justify-center text-white text-xs font-bold`}
+                                        >
+                                          ✓
+                                        </div>
+                                        <p className="text-sm leading-relaxed text-neutral-300">
+                                          {criterion}
+                                        </p>
+                                      </div>
+                                    )
+                                  )}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      ))}
                     </section>
+                  ) : (
+                    /* Single Round Events (Original Format) */
+                    <>
+                      {/* Format & Rules */}
+                      {details.formatAndRules?.length > 0 && (
+                        <section className="p-6 border bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-2xl border-orange-500/20">
+                          <h4 className="flex items-center gap-3 mb-4 text-xl font-bold text-white">
+                            <div className="p-2 rounded-lg bg-gradient-to-r from-orange-500 to-red-500">
+                              <div className="w-4 h-4 text-white">📋</div>
+                            </div>
+                            Format & Rules
+                          </h4>
+                          <div className="space-y-3">
+                            {details.formatAndRules.map((rule, index) => (
+                              <div
+                                key={index}
+                                className="flex items-start gap-3 p-3 bg-white/5 rounded-xl"
+                              >
+                                <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">
+                                  {index + 1}
+                                </div>
+                                <p className="leading-relaxed text-neutral-300">
+                                  {rule}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        </section>
+                      )}
+
+                      {/* Judging Criteria */}
+                      {details.judgingCriteria?.length > 0 && (
+                        <section className="p-6 border bg-gradient-to-br from-violet-500/10 to-purple-500/10 rounded-2xl border-violet-500/20">
+                          <h4 className="flex items-center gap-3 mb-4 text-xl font-bold text-white">
+                            <div className="p-2 rounded-lg bg-gradient-to-r from-violet-500 to-purple-500">
+                              <div className="w-4 h-4 text-white">⚖️</div>
+                            </div>
+                            Judging Criteria
+                          </h4>
+                          <div className="space-y-3">
+                            {details.judgingCriteria.map((criterion, index) => (
+                              <div
+                                key={index}
+                                className="flex items-start gap-3 p-3 bg-white/5 rounded-xl"
+                              >
+                                <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">
+                                  ✓
+                                </div>
+                                <p className="leading-relaxed text-neutral-300">
+                                  {criterion}
+                                </p>
+                              </div>
+                            ))}
+                          </div>
+                        </section>
+                      )}
+                    </>
                   )}
 
-                  {/* Judging Criteria */}
-                  {details.judgingCriteria?.length > 0 && (
-                    <section className="p-6 border bg-gradient-to-br from-violet-500/10 to-purple-500/10 rounded-2xl border-violet-500/20">
+                  {/* Who Can Participate */}
+                  {details.whoCanParticipate?.length > 0 && (
+                    <section className="p-6 border bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-2xl border-green-500/20">
                       <h4 className="flex items-center gap-3 mb-4 text-xl font-bold text-white">
-                        <div className="p-2 rounded-lg bg-gradient-to-r from-violet-500 to-purple-500">
-                          <div className="w-4 h-4 text-white">⚖️</div>
+                        <div className="p-2 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500">
+                          <div className="w-4 h-4 text-white">👥</div>
                         </div>
-                        Judging Criteria
+                        Who Can Participate
                       </h4>
                       <div className="space-y-3">
-                        {details.judgingCriteria.map((criterion, index) => (
+                        {details.whoCanParticipate.map((participant, index) => (
                           <div
                             key={index}
                             className="flex items-start gap-3 p-3 bg-white/5 rounded-xl"
                           >
-                            <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-violet-500 to-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">
+                            <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">
                               ✓
                             </div>
                             <p className="leading-relaxed text-neutral-300">
-                              {criterion}
+                              {participant}
                             </p>
                           </div>
                         ))}
@@ -332,6 +531,33 @@ const EventDetailsModal = ({ isOpen, onClose, event: basicEventData }) => {
                             </div>
                             <p className="leading-relaxed text-neutral-300">
                               {perk}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+
+                  {/* Why Register */}
+                  {details.whyRegister?.length > 0 && (
+                    <section className="p-6 border bg-gradient-to-br from-pink-500/10 to-rose-500/10 rounded-2xl border-pink-500/20">
+                      <h4 className="flex items-center gap-3 mb-4 text-xl font-bold text-white">
+                        <div className="p-2 rounded-lg bg-gradient-to-r from-pink-500 to-rose-500">
+                          <div className="w-4 h-4 text-white">💡</div>
+                        </div>
+                        Why Register
+                      </h4>
+                      <div className="space-y-3">
+                        {details.whyRegister.map((reason, index) => (
+                          <div
+                            key={index}
+                            className="flex items-start gap-3 p-3 bg-white/5 rounded-xl"
+                          >
+                            <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-0.5">
+                              💪
+                            </div>
+                            <p className="leading-relaxed text-neutral-300">
+                              {reason}
                             </p>
                           </div>
                         ))}

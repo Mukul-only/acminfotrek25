@@ -1,4 +1,4 @@
-// src/App.jsx - Updated with forgot password routes
+// src/App.jsx - Updated with forgot password and logout-on-close functionality
 import React, { useState, useEffect, Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
@@ -12,8 +12,6 @@ const AboutPage = React.lazy(() => import("./pages/AboutPage"));
 const ContactPage = React.lazy(() => import("./pages/ContactPage"));
 const LoginPage = React.lazy(() => import("./pages/LoginPage"));
 const SignupPage = React.lazy(() => import("./pages/SignupPage"));
-
-// Add lazy loading for password reset pages
 const ForgotPasswordPage = React.lazy(() =>
   import("./pages/ForgotPasswordPage")
 );
@@ -40,7 +38,6 @@ const NotFoundPage = () => (
 );
 
 function App() {
-  // Check localStorage for previous loading completion
   const [isLoading, setIsLoading] = useState(() => {
     const hasLoadedBefore = localStorage.getItem("appInitialLoadComplete");
     return hasLoadedBefore !== "true";
@@ -49,7 +46,6 @@ function App() {
   const [fadeOutLoading, setFadeOutLoading] = useState(false);
 
   useEffect(() => {
-    // Only run loading sequence if this is the first visit
     if (isLoading) {
       const fadeOutTimer = setTimeout(() => {
         setFadeOutLoading(true);
@@ -67,6 +63,36 @@ function App() {
     }
   }, [isLoading]);
 
+  // ✅ ADDED: Logout on browser/tab close functionality
+  useEffect(() => {
+    const handleTabClose = () => {
+      // IMPORTANT: Adjust 'authToken' to the key you use to store the JWT in localStorage
+      const token = localStorage.getItem("authToken");
+
+      if (token) {
+        const logoutUrl = `${
+          import.meta.env.VITE_API_BASE_URL
+        }/api/auth/logout`;
+
+        // Use navigator.sendBeacon for reliable background requests on unload.
+        // It's designed for this exact purpose.
+        const headers = { type: "application/json" };
+        const blob = new Blob([JSON.stringify({ token })], headers);
+        navigator.sendBeacon(logoutUrl, blob);
+
+        console.log("Logout signal sent to the server on tab close.");
+      }
+    };
+
+    // Add the event listener when the component mounts
+    window.addEventListener("beforeunload", handleTabClose);
+
+    // Remove the event listener when the component unmounts (cleanup)
+    return () => {
+      window.removeEventListener("beforeunload", handleTabClose);
+    };
+  }, []); // The empty dependency array ensures this effect runs only once
+
   if (isLoading) {
     return (
       <div
@@ -82,7 +108,6 @@ function App() {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        {/* Existing routes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/team" element={<TeamPage />} />
@@ -90,12 +115,8 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-
-        {/* Add password reset routes */}
         <Route path="/forgot-password" element={<ForgotPasswordPage />} />
         <Route path="/reset-password" element={<ResetPasswordPage />} />
-
-        {/* 404 fallback */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

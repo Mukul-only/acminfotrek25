@@ -51,7 +51,12 @@ export const AdminMiddleware = async (req, res, next) => {
         req.user = findUser;
         next();
       } else {
-        next(new HttpException(403, "You are not authorized to access this resource"));
+        next(
+          new HttpException(
+            403,
+            "You are not authorized to access this resource"
+          )
+        );
       }
     } else {
       next(new HttpException(404, "Authentication token missing"));
@@ -59,4 +64,4 @@ export const AdminMiddleware = async (req, res, next) => {
   } catch (error) {
     next(new HttpException(401, "Wrong authentication token"));
   }
-}
+};

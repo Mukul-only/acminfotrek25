@@ -7,8 +7,8 @@ export const eventRichDetails = [
     introduction:
       "Algorithmia is a technical coding competition where participants will be given 5 programming questions to solve on the HackerEarth platform. You'll have 2 hours to solve as many as you can – so manage your time wisely, think strategically, and let your code do the talking.", // Renamed from 'description' to avoid confusion with eventsData.js's description
     durationDetails: {
-      date: "Yet to be decided",
-      time: "yet to be decided",
+      date: "T.B.A",
+      time: "T.B.A",
       duration: "2 Hours",
       platform: "HackerEarth",
     },
@@ -41,7 +41,7 @@ export const eventRichDetails = [
       "Add value to your resume with a recognized coding event.",
       "Enjoy the thrill of coding under pressure.",
     ],
-    concludingTagline: "Code your way to the top in Algorithma!",
+    concludingTagline: "Code your way to the top in Algorithmia!",
   },
   {
     id: "66817b2f3a4b5c6d7e8f9a02",
@@ -51,8 +51,8 @@ export const eventRichDetails = [
     introduction:
       "Type Racer is a single-player typing competition where participants must type a given paragraph as quickly and accurately as possible. The twist? There are checkpoints placed throughout the text, and any mistake past a checkpoint forces you to restart from that checkpoint.", // Renamed from 'description' to avoid confusion with eventsData.js's description
     durationDetails: {
-      date: "...",
-      time: "...",
+      date: "T.B.A",
+      time: "T.B.A",
       duration: "Depends on how fast you type!",
       platform: "Online",
     },
@@ -89,12 +89,12 @@ export const eventRichDetails = [
     id: "66817b2f3a4b5c6d7e8f9a03",
     title: "Emoji Charades",
     detailsImage: "/assets/events/emoji-charades.webp",
-    tagline: "Can your team emoji its way to victory? 🎯🏆",
+    tagline: "Can your team emoji its way to victory?",
     introduction:
       "Emoji Charades is a fun and fast-paced two-player team game where one player is given movie names and must describe them using only emojis. The teammate must then guess the movie title based solely on the emoji clues. It's a game of creativity, teamwork, and emoji brilliance!",
     durationDetails: {
-      date: "...",
-      time: "...",
+      date: "T.B.A",
+      time: "T.B.A",
       duration: "30–45 minutes per team, depending on rounds",
       platform: "Online via Web Platform",
     },
@@ -131,61 +131,17 @@ export const eventRichDetails = [
     concludingTagline: "Speak fluent Emoji – Guess it right, win it bright! 🎉",
   },
   {
-    id: "66817b2f3a4b5c6d7e8f9a04",
-    title: "Crack the Password",
-    detailsImage: "/assets/events/crack-password.webp",
-    tagline: "Treasure hunt Round 1",
-    introduction:
-      "Crack the Password is a thrilling team based event hosted on a custom web platform where players must unlock a series of folders. Each folder is locked behind a unique question, and players must answer correctly to proceed. The player who unlocks the most folders in the least amount of time wins!",
-    durationDetails: {
-      date: "...",
-      time: "...",
-      duration: "Varies per player (timed event)",
-      platform: "Online via Web Platform",
-    },
-    formatAndRules: [
-      "team based event",
-      "Participants are presented with multiple locked folders on the platform.",
-      "Each folder is associated with a unique question or puzzle.",
-      "To unlock a folder, the player must correctly answer the question.",
-      "The game continues until the time limit is reached or all folders are unlocked.",
-      "The player who unlocks the most folders in the shortest time wins.",
-    ],
-    judgingCriteria: [
-      "Number of folders successfully unlocked.",
-      "Time taken to unlock each folder.",
-      "Accuracy and problem-solving ability.",
-    ],
-    whoCanParticipate: [
-      "Open to all students — anyone with a knack for puzzles and logic can join!",
-      "team event ",
-      "No prior experience required — just bring your brainpower!",
-    ],
-    prizesAndPerks: [
-      "Exciting prizes for the top performers.",
-      "Participation certificates for all.",
-      "A fun and challenging test of logic, speed, and mental agility.",
-    ],
-    whyRegister: [
-      "Challenge your logical thinking and problem-solving skills.",
-      "Engage with a unique and interactive puzzle-based event.",
-      "Compete for prizes and bragging rights.",
-      "Enjoy a mentally stimulating event on a custom web platform.",
-    ],
-    concludingTagline: "Think fast, solve smart, and crack every code!",
-  },
-  {
     id: "66817b2f3a4b5c6d7e8f9a05",
-    title: "Reverse Engineering",
+    title: "BackTrack",
     detailsImage: "/assets/events/reverse-engineering.webp",
     tagline: "Decode the Logic. Master the Machine.",
     introduction:
-      "Reverse Engineering is a technical single-player event hosted on a web platform where participants are challenged to deduce hidden logic behind given input-output pairs. Players must identify the underlying pattern and write code that mimics the observed behavior. The participant who deciphers the most patterns with accurate code in the shortest time wins.",
+      "BackTrack is a technical single-player event where participants are challenged to deduce hidden logic behind given input-output pairs. Players must identify the underlying pattern and write code that mimics the observed behavior. The participant who deciphers the most patterns with accurate code in the shortest time wins.",
     durationDetails: {
-      date: "...",
-      time: "...",
+      date: "T.B.A",
+      time: "T.B.A",
       duration: "Varies based on number of problems and time limit",
-      platform: "Online via Web Platform",
+      platform: "Online via Web Platform and hackerrank/hackerearth",
     },
     formatAndRules: [
       "Single-player event — individual participation only.",
@@ -196,7 +152,7 @@ export const eventRichDetails = [
       "You can attempt multiple challenges — the more you crack, the better your score.",
     ],
     judgingCriteria: [
-      "Number of patterns successfully reverse engineered.",
+      "Number of patterns successfully BackTracked. ",
       "Correctness and efficiency of submitted code.",
       "Time of submission — faster solutions gain an edge.",
       "Code must handle all test cases to be considered valid.",
@@ -227,8 +183,8 @@ export const eventRichDetails = [
     introduction:
       "Destinite is a prestigious one-on-one interview-based event, where the top performers of INFOTREK are shortlisted and interviewed by a panel. It aims to identify not just technical proficiency, but also communication skills, mindset, and leadership potential. This is where your journey takes a leap forward.",
     durationDetails: {
-      date: "...",
-      time: "...",
+      date: "T.B.A",
+      time: "T.B.A",
       duration: "Each interview lasts around 20–30 minutes",
       platform: "Offline / Online (based on availability)",
     },
@@ -270,8 +226,8 @@ export const eventRichDetails = [
     introduction:
       "An intensive 1.5-hour frontend development competition where teams analyze and recreate precise website interfaces using core web technologies. Participants receive a target UI design and must architect pixel-perfect replicas using HTML, CSS, and JavaScript while demonstrating clean coding practices and responsive design principles. This collaborative 2-member challenge tests visual accuracy, technical implementation skills, and code quality under time constraints with limited external resources.",
     durationDetails: {
-      date: "...",
-      time: "...",
+      date: "T.B.A",
+      time: "T.B.A",
       duration: "1.5 hours",
       platform: "On-site (development systems provided)",
     },
@@ -314,8 +270,8 @@ export const eventRichDetails = [
     introduction:
       "CS Quiz is a fast-paced, single-player technical quiz that tests your knowledge across various domains of computer science — from algorithms to databases, OS, networks, and more. Hosted on HackerEarth or a similar online platform, it’s your chance to prove your CS fundamentals in a competitive environment.",
     durationDetails: {
-      date: "...",
-      time: "...",
+      date: "T.B.A",
+      time: "T.B.A",
       duration: "45 minutes to 1 hour",
       platform: "Online (HackerEarth or equivalent)",
     },
@@ -349,61 +305,94 @@ export const eventRichDetails = [
     ],
     concludingTagline: "Know your CS? Prove it.",
   },
+
   {
     id: "66817b2f3a4b5c6d7e8f9a10",
-    title: "Treasure Hunt Round 2",
+    title: "Treasure Hunt",
     detailsImage: "/assets/events/treasure-hunt.webp",
-    tagline: "Race, Solve, Conquer!",
+    tagline: "The Ultimate Puzzle Challenge",
     introduction:
-      "This round is a classic treasure hunt where your team will physically race to different locations across the NIT Trichy campus. Starting with a puzzle, each answer leads to a specific spot on campus. Solve it, run there, and find the next clue. The cycle continues until you reach the final destination. The first team to finish wins!",
+      "Treasure Hunt is a thrilling multi-round team-based event that challenges both your brain and your legs! Round 1 takes place online, where teams solve logic-based puzzles to unlock folders as fast as possible. Round 2 moves the action offline with a classic treasure hunt across the NIT Trichy campus. Only the sharpest minds and fastest feet will reach the final treasure!",
     durationDetails: {
-      date: "...",
-      time: "...",
-      duration: "Varies (until final destination is reached)",
-      platform: "On-campus (NIT Trichy)",
+      date: "T.B.A",
+      time: "T.B.A",
+      duration: "Varies per round",
+      platform:
+        "Round 1: Online via Web Platform | Round 2: On-campus (NIT Trichy)",
     },
-    formatAndRules: [
-      "Team-based participation only.",
-      "Each team starts with the first puzzle.",
-      "The solution to each puzzle reveals the next campus location.",
-      "Teams must physically go to the correct spot to collect the next clue.",
-      "No external help (internet/phones) is allowed during the hunt.",
-      "The first team to solve the final puzzle and reach the destination wins.",
-    ],
-    judgingCriteria: [
-      "Order of completion — the fastest team wins.",
-      "Accuracy in solving puzzles.",
-      "Teamwork and strategy in navigating the hunt.",
+    rounds: [
+      {
+        roundNumber: 1,
+        roundName: "Crack the Password",
+        tagline: "Treasure Hunt Round 1",
+        introduction:
+          "Crack the Password is a thrilling team-based event where players must unlock a series of folders. Each folder is locked behind a unique question, and players must answer correctly to proceed. The team that unlocks the most folders in the least amount of time wins this round!",
+        formatAndRules: [
+          "Team-based event",
+          "Participants are presented with multiple locked folders on the platform.",
+          "Each folder is associated with a unique question or puzzle.",
+          "To unlock a folder, the team must correctly answer the question.",
+          "The game continues until the time limit is reached or all folders are unlocked.",
+          "The team that unlocks the most folders in the shortest time wins.",
+        ],
+        judgingCriteria: [
+          "Number of folders successfully unlocked.",
+          "Time taken to unlock each folder.",
+          "Accuracy and problem-solving ability.",
+        ],
+      },
+      {
+        roundNumber: 2,
+        roundName: "Race, Solve, Conquer!",
+        tagline: "Treasure Hunt Round 2",
+        introduction:
+          "This round is a classic treasure hunt where your team will physically race to different locations across the NIT Trichy campus. Starting with a puzzle, each answer leads to a specific spot on campus. Solve it, run there, and find the next clue. The cycle continues until you reach the final destination. The first team to finish wins!",
+        formatAndRules: [
+          "Team-based participation only.",
+          "Each team starts with the first puzzle.",
+          "The solution to each puzzle reveals the next campus location.",
+          "Teams must physically go to the correct spot to collect the next clue.",
+          "No external help (internet/phones) is allowed during the hunt.",
+          "The first team to solve the final puzzle and reach the destination wins.",
+        ],
+        judgingCriteria: [
+          "Order of completion — the fastest team wins.",
+          "Accuracy in solving puzzles.",
+          "Teamwork and strategy in navigating the hunt.",
+        ],
+      },
     ],
     whoCanParticipate: [
-      "Open to all registered teams.",
-      "Best suited for those who enjoy problem-solving, riddles, and fast-paced challenges.",
+      "Open to all students — anyone with a knack for puzzles, logic, and adventure can join!",
+      "Team event (team-based participation only).",
+      "No prior experience required — just bring your brainpower and energy!",
     ],
     prizesAndPerks: [
-      "Exciting prizes for the winning team.",
+      "Exciting prizes for the winning teams.",
       "Participation certificates for all.",
-      "A fun and adventurous experience across campus.",
+      "A fun and challenging experience combining logic, speed, and adventure.",
     ],
     whyRegister: [
-      "Test your puzzle-solving and logical reasoning skills.",
-      "Enjoy an adventurous race across the NIT Trichy campus.",
-      "Strengthen teamwork and quick thinking.",
-      "Be part of a thrilling and competitive event.",
+      "Challenge your logical thinking and problem-solving skills in Round 1.",
+      "Enjoy an adventurous race across the NIT Trichy campus in Round 2.",
+      "Strengthen teamwork, strategy, and quick thinking.",
+      "Compete for prizes, certificates, and bragging rights!",
     ],
-    concludingTagline: "Crack the clue. Chase the trail. Claim the treasure!",
+    concludingTagline: "Crack the code. Chase the clues. Claim the treasure!",
   },
+
   {
     id: "66817b2f3a4b5c6d7e8f9a11",
     title: "Crypt of the NecroDancer!",
     detailsImage: "/assets/events/crypt-necrodancer.webp",
     tagline: "Move to the beat. Fight to survive.",
     introduction:
-      "Crypt of the NecroDancer is a roguelike rhythm game that blends dungeon exploration with beat-matching mechanics. Players explore procedurally generated dungeons while syncing their movements and actions to the rhythm of the soundtrack composed by Danny Baranowsky. Success depends on learning the rhythmic patterns of enemies and timing every action to the beat.",
+      "Crypt of the NecroDancer is a roguelike rhythm game that blends dungeon exploration with beat-matching mechanics. Players explore dungeons while syncing their movements and actions to the rhythm of the soundtrack composed by Danny Baranowsky. Success depends on learning the rhythmic patterns of enemies and timing every action to the beat.",
     durationDetails: {
-      date: "...",
-      time: "...",
+      date: "T.B.A",
+      time: "T.B.A",
       duration: "Varies (based on gameplay)",
-      platform: "On-site (gaming setup provided)",
+      platform: "Off-site (play on personal systems)",
     },
     formatAndRules: [
       "Individual participation only — no teams.",
