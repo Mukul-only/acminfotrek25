@@ -25,8 +25,7 @@ connectWithRetry();
 // IMPORTANT: Replace 'http://localhost:5173' if your frontend runs on a different port.
 const allowedOrigins = [
   "http://localhost:5173",
-  // Add any other origins here, like your production frontend URL
-  // 'https://your-production-site.com'
+  "https://acminfotrek25.netlify.app",
 ];
 
 const corsOptions = {
