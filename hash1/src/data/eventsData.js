@@ -26,6 +26,7 @@ export const events = [
     image: "/assets/events/emoji-charades.webp",
     eventType: "non-tech",
     playerMode: "team based",
+    teamsize: "2",
     subCategory: null,
     description: "Detailed description for Emoji charades...",
   },
@@ -47,6 +48,7 @@ export const events = [
     playerMode: "single player",
     subCategory: null,
     description: "Detailed description for Destinite...",
+    register: "no",
   },
 
   {
@@ -55,6 +57,7 @@ export const events = [
     image: "/assets/events/replicode.webp",
     eventType: "technical",
     playerMode: "team based",
+    teamsize: "2",
     subCategory: "webdev",
     description: "Detailed description for Replicode...",
   },
@@ -73,6 +76,7 @@ export const events = [
     image: "/assets/events/treasure-hunt.webp",
     eventType: "non-tech",
     playerMode: "team based",
+    teamsize: "3",
     subCategory: null,
     description: "Detailed description for Break the bug...",
   },

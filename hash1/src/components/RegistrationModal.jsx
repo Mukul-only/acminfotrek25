@@ -6,7 +6,7 @@ const CloseIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
-    viewBox="0 0 24 24"
+    viewBox="0 0 24"
     strokeWidth={2}
     stroke="currentColor"
     className="w-6 h-6"
@@ -35,14 +35,21 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
   const [teamName, setTeamName] = useState("");
   const [teamMembers, setTeamMembers] = useState("");
 
+  // State for team size validation
+  const [emailCount, setEmailCount] = useState(0);
+  const [isTeamSizeCorrect, setIsTeamSizeCorrect] = useState(false);
+
   // API call state
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
   const isTeamEvent = event?.playerMode === "team based";
+  const requiredTeamSize = event?.teamsize
+    ? parseInt(event.teamsize, 10)
+    : null;
 
-  // Effect to reset the form and messages when the modal is opened
+  // Effect to reset form when modal opens
   useEffect(() => {
     if (isOpen) {
       setHasAgreedToStatements(false);
@@ -54,13 +61,30 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
     }
   }, [isOpen, event, user]);
 
+  // Real-time email counting and validation
+  useEffect(() => {
+    if (isTeamEvent) {
+      const members = teamMembers
+        .split(",")
+        .map((e) => e.trim())
+        .filter(Boolean);
+      setEmailCount(members.length);
+
+      if (requiredTeamSize) {
+        setIsTeamSizeCorrect(members.length === requiredTeamSize);
+      } else {
+        setIsTeamSizeCorrect(true);
+      }
+    }
+  }, [teamMembers, isTeamEvent, requiredTeamSize]);
+
+  // Body overflow handler
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
     }
-
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -72,12 +96,10 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
     e.preventDefault();
     setError("");
     setSuccessMessage("");
-
     if (!token) {
       setError("You must be logged in to register for an event.");
       return;
     }
-
     setIsLoading(true);
 
     const payload = {
@@ -91,9 +113,7 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
         .map((email) => email.trim())
         .filter(Boolean);
       if (!teamName.trim() || memberEmails.length === 0) {
-        setError(
-          "For a team event, a team name and at least one member's email are required."
-        );
+        setError("Team name and at least one member's email are required.");
         setIsLoading(false);
         return;
       }
@@ -113,9 +133,7 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
           body: JSON.stringify(payload),
         }
       );
-
       const data = await response.json();
-
       if (!response.ok) {
         throw new Error(
           data.message || `HTTP error! Status: ${response.status}`
@@ -151,7 +169,6 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
     return "shadow-violet-500/25";
   };
 
-  // Minimal animation variants
   const backdropVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -168,60 +185,20 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="registration-modal-overlay"
+          className="fixed inset-0 z-[9998] flex items-center justify-center p-4 bg-black/80"
           variants={backdropVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
           transition={{ duration: 0.2 }}
           onClick={handleOverlayClick}
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            width: "100vw",
-            height: "100vh",
-            zIndex: 9998,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "1rem",
-            backgroundColor: "rgba(0, 0, 0, 0.8)",
-            outline: "none",
-            border: "none",
-            boxShadow: "none",
-            willChange: "opacity",
-            userSelect: "none",
-            WebkitUserSelect: "none",
-            MozUserSelect: "none",
-            msUserSelect: "none",
-            transition: "none",
-          }}
         >
           <motion.div
-            className="registration-modal-content"
+            className="relative flex flex-col w-full max-w-md overflow-hidden bg-gray-900 border border-white/10 rounded-3xl shadow-2xl max-h-[90vh]"
             variants={modalVariants}
             transition={{ duration: 0.2 }}
             onClick={(e) => e.stopPropagation()}
-            style={{
-              position: "relative",
-              backgroundColor: "rgb(17, 24, 39)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-              borderRadius: "1.5rem",
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.8)",
-              width: "100%",
-              maxWidth: "28rem",
-              maxHeight: "90vh",
-              overflow: "hidden",
-              display: "flex",
-              flexDirection: "column",
-              outline: "none",
-              willChange: "transform, opacity",
-            }}
           >
-            {/* Static border */}
             <div
               className={`absolute inset-0 bg-gradient-to-r ${getEventTypeColor(
                 event.eventType
@@ -230,7 +207,6 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
               <div className="w-full h-full bg-gray-900/95 rounded-3xl"></div>
             </div>
 
-            {/* Modal Header */}
             <div className="relative flex items-center justify-between flex-shrink-0 p-5 border-b sm:p-6 border-white/10">
               <div className="flex items-center gap-3">
                 <div
@@ -251,7 +227,6 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
                   </p>
                 </div>
               </div>
-
               <button
                 onClick={onClose}
                 className="p-2 transition-colors duration-200 border text-neutral-400 hover:text-white hover:bg-white/10 rounded-xl border-white/10"
@@ -261,7 +236,6 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
               </button>
             </div>
 
-            {/* Success/Error Messages */}
             {successMessage && (
               <div className="relative p-4 border-b bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-green-500/30">
                 <div className="flex items-center gap-3 text-green-300">
@@ -275,7 +249,6 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
                 </div>
               </div>
             )}
-
             {error && (
               <div className="relative p-4 border-b bg-gradient-to-r from-red-500/20 to-rose-500/20 border-red-500/30">
                 <div className="flex items-center gap-3 text-red-300">
@@ -291,7 +264,6 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
             {!successMessage && (
               <div className="relative flex-grow p-5 overflow-y-auto sm:p-6">
                 <form onSubmit={handleRegister} className="space-y-6">
-                  {/* Event Info Card */}
                   <div className="p-4 border bg-gradient-to-br from-white/5 to-white/10 rounded-2xl border-white/10">
                     <p className="mb-2 text-sm text-neutral-400">
                       Registering for:
@@ -313,10 +285,8 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
                     </div>
                   </div>
 
-                  {/* Team Event Fields */}
                   {isTeamEvent && (
                     <div className="space-y-4">
-                      {/* Team Name */}
                       <div className="space-y-2">
                         <label className="block text-sm font-medium text-neutral-200">
                           Team Name <span className="text-red-400">*</span>
@@ -335,8 +305,6 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
                           </div>
                         </div>
                       </div>
-
-                      {/* Team Members */}
                       <div className="space-y-2">
                         <label className="block text-sm font-medium text-neutral-200">
                           Team Members' Emails{" "}
@@ -348,27 +316,48 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
                             onChange={(e) => setTeamMembers(e.target.value)}
                             required
                             rows={3}
-                            className="w-full px-4 py-3 pl-10 text-white transition-colors duration-200 border resize-none bg-white/5 border-white/20 rounded-xl placeholder-neutral-400 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20"
+                            className={`w-full px-4 py-3 pl-10 text-white transition-all duration-200 border resize-none bg-white/5 rounded-xl placeholder-neutral-400 focus:outline-none focus:ring-2 ${
+                              requiredTeamSize && emailCount > 0
+                                ? isTeamSizeCorrect
+                                  ? "border-green-500/50 focus:border-green-400 focus:ring-green-400/20"
+                                  : "border-red-500/50 focus:border-red-400 focus:ring-red-400/20"
+                                : "border-white/20 focus:border-cyan-400 focus:ring-cyan-400/20"
+                            }`}
                             placeholder="your.email@example.com, member2@example.com"
                           />
                           <div className="absolute left-3 top-3 text-cyan-400 opacity-60">
                             📧
                           </div>
                         </div>
-                        <p className="flex items-center gap-2 text-xs text-neutral-400">
-                          <div className="text-cyan-400">💡</div>
-                          Enter emails separated by commas. Please include your
-                          own email.
-                        </p>
+                        {requiredTeamSize ? (
+                          <p
+                            className={`flex items-center gap-2 text-xs transition-colors duration-200 ${
+                              isTeamSizeCorrect
+                                ? "text-green-400"
+                                : "text-red-400"
+                            }`}
+                          >
+                            <div className="text-xl">
+                              {isTeamSizeCorrect ? "✓" : "✗"}
+                            </div>
+                            This event requires exactly {requiredTeamSize}{" "}
+                            members. (Currently: {emailCount})
+                          </p>
+                        ) : (
+                          <p className="flex items-center gap-2 text-xs text-neutral-400">
+                            <div className="text-cyan-400">💡</div>
+                            Enter emails separated by commas. Please include
+                            your own email.
+                          </p>
+                        )}
                       </div>
                     </div>
                   )}
 
-                  {/* Participation Statements */}
                   <div className="space-y-3">
                     <p className="flex items-center gap-2 text-sm font-medium text-neutral-200">
-                      <div className="text-orange-400">📋</div>
-                      Terms & Conditions
+                      <div className="text-orange-400">📋</div>Terms &
+                      Conditions
                     </p>
                     <div className="p-4 overflow-y-auto border bg-gradient-to-br from-white/5 to-white/10 rounded-xl border-white/10 max-h-48">
                       <ul className="space-y-2 text-sm text-neutral-300">
@@ -384,7 +373,6 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
                     </div>
                   </div>
 
-                  {/* Agreement Checkbox */}
                   <div
                     className="flex items-start gap-3 p-3 transition-colors duration-200 border cursor-pointer bg-gradient-to-br from-white/5 to-white/10 rounded-xl border-white/10 hover:bg-white/10"
                     onClick={() =>
@@ -411,18 +399,23 @@ const RegistrationModal = ({ isOpen, onClose, event }) => {
                     </span>
                   </div>
 
-                  {/* Register Button */}
                   <button
                     type="submit"
                     disabled={
                       isLoading ||
                       !hasAgreedToStatements ||
-                      (isTeamEvent && (!teamName.trim() || !teamMembers.trim()))
+                      (isTeamEvent &&
+                        (!teamName.trim() ||
+                          !teamMembers.trim() ||
+                          !isTeamSizeCorrect))
                     }
                     className={`w-full py-4 px-6 rounded-2xl font-bold text-white text-lg transition-all duration-200 ${
                       isLoading ||
                       !hasAgreedToStatements ||
-                      (isTeamEvent && (!teamName.trim() || !teamMembers.trim()))
+                      (isTeamEvent &&
+                        (!teamName.trim() ||
+                          !teamMembers.trim() ||
+                          !isTeamSizeCorrect))
                         ? "bg-neutral-600 text-neutral-400 cursor-not-allowed"
                         : `bg-gradient-to-r ${getEventTypeColor(
                             event.eventType

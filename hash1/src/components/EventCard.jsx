@@ -1,16 +1,15 @@
 // src/components/EventCard.jsx
-// --- FINAL VERSION ---
+// --- MODIFIED VERSION ---
 
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Join from "../assets/join.svg?react";
 import RegistrationModal from "./RegistrationModal";
 import EventDetailsModal from "./EventDetailsModal";
-import { AuthContext } from "../context/AuthContext"; // Import the context
-import { FiCheckCircle } from "react-icons/fi"; // Import a new icon for the "Registered" state
+import { AuthContext } from "../context/AuthContext";
+import { FiCheckCircle } from "react-icons/fi";
 
 const EventCard = ({ event }) => {
-  // Get all the necessary state and functions from our AuthContext
   const { isAuthenticated, registeredEvents, removeRegisteredEvent, token } =
     useContext(AuthContext);
 
@@ -18,18 +17,14 @@ const EventCard = ({ event }) => {
   const [showTooltip, setShowTooltip] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
-  const [isUnregistering, setIsUnregistering] = useState(false); // Loading state for the unregister action
+  const [isUnregistering, setIsUnregistering] = useState(false);
 
-  // Check if the current user is registered for THIS event.
-  // The 'registeredEvents' is a Set for fast lookups.
   const isRegistered = registeredEvents.has(event.id);
-
   const joinButtonRef = useRef(null);
 
-  // Your creative button animation effect
+  // Only apply animation effect if registration is allowed
   useEffect(() => {
-    // Only apply the animation if the join button is actually rendered
-    if (isAuthenticated && !isRegistered) {
+    if (isAuthenticated && !isRegistered && event.register !== "no") {
       const button = joinButtonRef.current;
       if (!button) return;
 
@@ -46,9 +41,9 @@ const EventCard = ({ event }) => {
         button.removeEventListener("mousemove", handleMouseMove);
       };
     }
-  }, [isAuthenticated, isRegistered]); // Rerun effect if auth status changes
+  }, [isAuthenticated, isRegistered, event.register]);
 
-  // --- Modal Handlers ---
+  // Modal and tooltip handlers remain the same...
   const handleOpenDetailsModal = () => setIsDetailsModalOpen(true);
   const handleCloseDetailsModal = () => setIsDetailsModalOpen(false);
   const handleOpenModal = (e) => {
@@ -57,16 +52,15 @@ const EventCard = ({ event }) => {
   };
   const handleCloseModal = () => setIsModalOpen(false);
 
-  // --- Tooltip Handlers ---
   const handleMouseEnterCard = () => setShowTooltip(true);
   const handleMouseLeaveCard = () => setShowTooltip(false);
   const handleMouseMoveCard = (e) =>
     setTooltipPosition({ x: e.clientX + 15, y: e.clientY + 10 });
 
-  // --- Unregister Logic ---
+  // Unregister logic remains the same...
   const handleUnregister = async (e) => {
-    e.stopPropagation(); // Prevent card click
-    if (isUnregistering) return; // Prevent double clicks
+    e.stopPropagation();
+    if (isUnregistering) return;
 
     setIsUnregistering(true);
     try {
@@ -83,11 +77,10 @@ const EventCard = ({ event }) => {
         throw new Error(data.message || "Failed to unregister.");
       }
 
-      // On success, update the global state immediately
       removeRegisteredEvent(event.id);
     } catch (error) {
       console.error("Unregister Error:", error);
-      alert(error.message); // Simple error feedback for the user
+      alert(error.message);
     } finally {
       setIsUnregistering(false);
     }
@@ -141,47 +134,49 @@ const EventCard = ({ event }) => {
                 </p>
               </div>
 
-              {/* --- DYNAMIC BUTTON LOGIC --- */}
-              <div className="flex-shrink-0">
-                {!isAuthenticated ? (
-                  // State 1: User is NOT logged in
-                  <Link
-                    to="/login"
-                    onClick={(e) => e.stopPropagation()}
-                    className="px-4 py-2 text-xs font-semibold text-yellow-400 underline rounded-full sm:text-sm whitespace-nowrap hover:text-yellow-200"
-                  >
-                    Login to Join
-                  </Link>
-                ) : isRegistered ? (
-                  // State 2: User IS logged in AND IS registered for this event
-                  <button
-                    onClick={handleUnregister}
-                    disabled={isUnregistering}
-                    className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-green-300 transition-colors duration-200 rounded-full bg-green-900/80 sm:px-4 sm:text-sm whitespace-nowrap hover:bg-red-800 hover:text-red-200 group disabled:bg-neutral-600 disabled:cursor-wait"
-                  >
-                    <span className="flex items-center gap-2 group-hover:hidden">
-                      <FiCheckCircle /> Registered
-                    </span>
-                    <span className="items-center hidden gap-2 group-hover:flex">
-                      Unregister?
-                    </span>
-                  </button>
-                ) : (
-                  // State 3: User IS logged in but is NOT registered for this event
-                  <button
-                    ref={joinButtonRef}
-                    onClick={handleOpenModal}
-                    onMouseEnter={(e) => e.stopPropagation()}
-                    onMouseLeave={(e) => e.stopPropagation()}
-                    className="flex-shrink-0 px-3 py-2 text-xs font-semibold rounded-full button-creative-effect sm:px-4 sm:text-sm whitespace-nowrap"
-                  >
-                    <span className="button-text-glow relative z-[1] flex items-center gap-1.5 sm:gap-2 transition-colors duration-300 ease-in-out">
-                      <Join className="w-4 h-4 sm:w-5 sm:h-5" />
-                      Join
-                    </span>
-                  </button>
-                )}
-              </div>
+              {/* --- MODIFIED DYNAMIC BUTTON LOGIC --- */}
+              {event.register !== "no" && (
+                <div className="flex-shrink-0">
+                  {!isAuthenticated ? (
+                    // State 1: User is NOT logged in
+                    <Link
+                      to="/login"
+                      onClick={(e) => e.stopPropagation()}
+                      className="px-4 py-2 text-xs font-semibold text-yellow-400 underline rounded-full sm:text-sm whitespace-nowrap hover:text-yellow-200"
+                    >
+                      Login to Join
+                    </Link>
+                  ) : isRegistered ? (
+                    // State 2: User IS logged in AND IS registered for this event
+                    <button
+                      onClick={handleUnregister}
+                      disabled={isUnregistering}
+                      className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-green-300 transition-colors duration-200 rounded-full bg-green-900/80 sm:px-4 sm:text-sm whitespace-nowrap hover:bg-red-800 hover:text-red-200 group disabled:bg-neutral-600 disabled:cursor-wait"
+                    >
+                      <span className="flex items-center gap-2 group-hover:hidden">
+                        <FiCheckCircle /> Registered
+                      </span>
+                      <span className="items-center hidden gap-2 group-hover:flex">
+                        Unregister?
+                      </span>
+                    </button>
+                  ) : (
+                    // State 3: User IS logged in but is NOT registered for this event
+                    <button
+                      ref={joinButtonRef}
+                      onClick={handleOpenModal}
+                      onMouseEnter={(e) => e.stopPropagation()}
+                      onMouseLeave={(e) => e.stopPropagation()}
+                      className="flex-shrink-0 px-3 py-2 text-xs font-semibold rounded-full button-creative-effect sm:px-4 sm:text-sm whitespace-nowrap"
+                    >
+                      <span className="button-text-glow relative z-[1] flex items-center gap-1.5 sm:gap-2 transition-colors duration-300 ease-in-out">
+                        <Join className="w-4 h-4 sm:w-5 sm:h-5" />
+                        Join
+                      </span>
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

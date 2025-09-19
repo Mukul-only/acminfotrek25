@@ -59,7 +59,7 @@ export const eventRichDetails = [
     formatAndRules: [
       "Participants will be given a pre-defined paragraph to type.",
       "Checkpoints are placed after every few words or sentences.",
-      "If a player makes a mistake, they must go back and retype from the last checkpoint.",
+      "If a player makes a mistake, they are send back to the last checkpoint.",
       "The fastest participant to complete the full paragraph correctly wins!",
     ],
     judgingCriteria: [
@@ -224,25 +224,27 @@ export const eventRichDetails = [
     detailsImage: "/assets/events/replicode.webp",
     tagline: "Code the design. Match it to perfection.",
     introduction:
-      "An intensive 1.5-hour frontend development competition where teams analyze and recreate precise website interfaces using core web technologies. Participants receive a target UI design and must architect pixel-perfect replicas using HTML, CSS, and JavaScript while demonstrating clean coding practices and responsive design principles. This collaborative 2-member challenge tests visual accuracy, technical implementation skills, and code quality under time constraints with limited external resources.",
+      "An intensive frontend development competition where teams analyze and recreate precise website interfaces using core web technologies. Participants will be given three UI component-based tasks, each with a time limit of 20 minutes, plus an additional 5 minutes before each task to view and understand the target UI. They must architect pixel-perfect replicas using HTML, CSS, and JavaScript while demonstrating clean coding practices, responsive design principles, and functional accuracy. Submissions will be collected at the end as a single zip file via a Google Form. This collaborative 2-member challenge tests visual accuracy, technical implementation skills, and code quality under time constraints with limited external resources.",
     durationDetails: {
       date: "T.B.A",
       time: "T.B.A",
-      duration: "1.5 hours",
+      duration: "1 hour 15 minutes",
       platform: "On-site (development systems provided)",
     },
     formatAndRules: [
       "Each team must consist of exactly two developers.",
-      "Organizers will provide a reference website interface (static + interactive elements).",
-      "Teams must replicate the given UI using only HTML, CSS, and JavaScript.",
+      "Organizers will provide a set of three UI component-based frontend tasks.",
+      "Each task has a time limit of 20 minutes, with an additional 5 minutes before the task to view and understand the component.",
+      "Teams must complete the given tasks using only HTML, CSS, and JavaScript.",
       "External libraries or frameworks (Bootstrap, Tailwind, Foundation, etc.) are prohibited unless explicitly permitted.",
       "Work must be original and completed within the given timeframe.",
+      "At the end, teams must submit their work as a zip file via a Google Form.",
     ],
     judgingCriteria: [
       "Visual fidelity and accuracy to the reference design.",
       "Responsiveness and adaptability across devices.",
       "Code quality, readability, and structure.",
-      "Successful implementation of interactive components.",
+      "Successful implementation of required functionality.",
       "Time management and completeness within the deadline.",
     ],
     whoCanParticipate: [
@@ -323,14 +325,14 @@ export const eventRichDetails = [
     rounds: [
       {
         roundNumber: 1,
-        roundName: "Crack the Password",
+        roundName: "Treasure Hunt Round 1",
         tagline: "Treasure Hunt Round 1",
         introduction:
-          "Crack the Password is a thrilling team-based event where players must unlock a series of folders. Each folder is locked behind a unique question, and players must answer correctly to proceed. The team that unlocks the most folders in the least amount of time wins this round!",
+          "treasure hunt round 1 is a thrilling team-based event where players must unlock a series of folders. Each folder is locked behind a unique question, and players must answer correctly to proceed. The team that unlocks the most folders in the least amount of time wins this round!",
         formatAndRules: [
           "Team-based event",
           "Participants are presented with multiple locked folders on the platform.",
-          "Each folder is associated with a unique question or puzzle.",
+          "Each folder is associated with a unique campus related question or puzzle.",
           "To unlock a folder, the team must correctly answer the question.",
           "The game continues until the time limit is reached or all folders are unlocked.",
           "The team that unlocks the most folders in the shortest time wins.",
@@ -343,7 +345,7 @@ export const eventRichDetails = [
       },
       {
         roundNumber: 2,
-        roundName: "Race, Solve, Conquer!",
+        roundName: "Treasure Hunt Round 2",
         tagline: "Treasure Hunt Round 2",
         introduction:
           "This round is a classic treasure hunt where your team will physically race to different locations across the NIT Trichy campus. Starting with a puzzle, each answer leads to a specific spot on campus. Solve it, run there, and find the next clue. The cycle continues until you reach the final destination. The first team to finish wins!",

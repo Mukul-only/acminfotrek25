@@ -6,7 +6,7 @@ import {
   resetPasswordService,
 } from "../services/authService.js";
 import logger from "../utils/logger.js";
-
+import { addTokenToBlocklist } from "../utils/tokenBlocklist.js";
 // Enhanced error handler for MongoDB issues
 const handleMongoError = (error, res, defaultMessage) => {
   if (
@@ -154,7 +154,7 @@ export const resetPassword = async (req, res) => {
       data: result,
     });
   } catch (error) {
-    // ✅ MODIFIED: Specifically handle the invalid token error with a 400 status
+    //  MODIFIED: Specifically handle the invalid token error with a 400 status
     if (error.message.includes("Invalid or expired reset token")) {
       return res.status(400).json({
         error:
@@ -168,4 +168,24 @@ export const resetPassword = async (req, res) => {
       `Reset Password Error: ${error.message}`
     );
   }
+};
+
+export const beaconSignOut = async (req, res) => {
+  console.log("Backend Controller: /beacon-signout endpoint was hit.");
+  console.log("Backend Controller: Raw request body:", req.body);
+  try {
+    const { token } = req.body;
+
+    if (token) {
+      console.log("Backend Controller: Extracted token from body:", token);
+      addTokenToBlocklist(token);
+      logger.info("Beacon sign-out: Token has been added to the blocklist.");
+    } else {
+      logger.warn("Beacon sign-out: Request received without a token.");
+    }
+  } catch (error) {
+    logger.error("Error in beaconSignOut:", error);
+  }
+
+  res.status(204).send();
 };

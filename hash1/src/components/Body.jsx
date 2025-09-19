@@ -6,11 +6,11 @@ const Body = (props) => {
   return (
     <Wrapper className="flex flex-col flex-1 w-full md:justify-between md:flex-row ">
       <div className="flex flex-col pt-8 w-[15rem] mb:pt-36 2xl:w-[30rem] lg:w-[25rem] md:w-[20rem] ">
-        <h1 className="text-5xl leading-9 tracking-tighter md:text-6xl md:leading-12 lg:leading-14 lg:text-7xl 2xl:text-8xl 2xl:leading-22 xl:leading-16 font-regular grad">
+        <h1 className="text-5xl leading-9 tracking-tighter text-transparent bg-gradient-to-r from-black to-stone-800 bg-clip-text md:from-white md:to-gray-600 md:text-6xl md:leading-12 lg:leading-14 lg:text-7xl 2xl:text-8xl 2xl:leading-22 xl:leading-16 font-regular">
           <span className="block pt-2">Discover</span>
           <span className="block pb-5">the wonders of space</span>
         </h1>
-        <p className="text-xs font-light lg:pt-4 md:text-sm lg:leading-5 lg:text-base xl:text-xl">
+        <p className="hidden text-xs font-light md:block lg:pt-4 md:text-sm lg:leading-5 lg:text-base xl:text-xl">
           <span className="block text-a">
             A cosmic convergence of code, creativity, and
           </span>

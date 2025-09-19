@@ -10,8 +10,6 @@ const connectWithRetry = () => {
     logger.error("MONGO_URI is not defined in the environment variables.");
     process.exit(1);
   }
-
-  // Note: Mongoose v6+ no longer requires the useNewUrlParser and useUnifiedTopology options.
   const options = {};
 
   logger.info("Attempting to connect to MongoDB...");

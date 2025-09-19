@@ -1,28 +1,26 @@
+// File: ACM-Backend/middleware/auth.middleware.js
+
 import pkg from "jsonwebtoken";
 import User from "../models/users.model.js";
 import dotenv from "dotenv";
 import { HttpException } from "../utils/HttpException.js";
-
+import { isTokenBlocklisted } from "../utils/tokenBlocklist.js";
 const { verify } = pkg;
-
 dotenv.config();
-
 const getAuthorization = (req) => {
-  // const coockie = req.cookies['Authorization'];
-  // if (coockie) return coockie;
-
   const header = req.header("Authorization");
   if (header) return header.split("Bearer ")[1];
-
   return null;
 };
-
 export const AuthMiddleware = async (req, res, next) => {
   try {
-    const Authorization = getAuthorization(req);
+    const token = getAuthorization(req);
 
-    if (Authorization) {
-      const { id } = await verify(Authorization, process.env.JWT_SECRET);
+    if (token) {
+      if (isTokenBlocklisted(token)) {
+        return next(new HttpException(401, "Token is invalid (logged out)"));
+      }
+      const { id } = await verify(token, process.env.JWT_SECRET);
       const findUser = await User.findById(id);
 
       if (findUser) {
@@ -38,15 +36,15 @@ export const AuthMiddleware = async (req, res, next) => {
     next(new HttpException(401, "Wrong authentication token"));
   }
 };
-
 export const AdminMiddleware = async (req, res, next) => {
   try {
-    const Authorization = getAuthorization(req);
-
-    if (Authorization) {
-      const { id } = await verify(Authorization, process.env.JWT_SECRET);
+    const token = getAuthorization(req);
+    if (token) {
+      if (isTokenBlocklisted(token)) {
+        return next(new HttpException(401, "Token is invalid (logged out)"));
+      }
+      const { id } = await verify(token, process.env.JWT_SECRET);
       const findUser = await User.findById(id);
-
       if (findUser && findUser.isAdmin === true) {
         req.user = findUser;
         next();

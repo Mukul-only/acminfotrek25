@@ -1,3 +1,5 @@
+// File: hash1/src/context/AuthContext.jsx
+
 import React, { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext(null);
@@ -6,7 +8,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [registeredEvents, setRegisteredEvents] = useState(new Set());
-  const [loading, setLoading] = useState(false); // Changed to false for non-blocking
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const initializeAuth = () => {
@@ -18,7 +20,7 @@ export const AuthProvider = ({ children }) => {
           const parsedUser = JSON.parse(storedUser);
           setToken(storedToken);
           setUser(parsedUser);
-          // Fetch registrations asynchronously without blocking render
+          // This function will now handle logging out if the token is invalid
           fetchUserRegistrations(storedToken);
         }
       } catch (error) {
@@ -38,11 +40,24 @@ export const AuthProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${authToken}` },
         }
       );
+
+      // --- START: NEW AND CRITICAL CODE ---
+      // If the token is invalid (blocklisted), the server will send a 401.
+      // We must catch this and trigger a logout on the frontend.
+      if (response.status === 401) {
+        console.log("Token is invalid or expired. Logging out.");
+        logout(); // This clears localStorage and updates the UI state.
+        return; // Stop further execution of this function.
+      }
+      // --- END: NEW AND CRITICAL CODE ---
+
       if (!response.ok) throw new Error("Could not fetch registrations");
+
       const eventIds = await response.json();
       setRegisteredEvents(new Set(eventIds));
     } catch (error) {
       console.error("Failed to fetch user registrations:", error);
+      // We don't logout on other network errors, only on a 401.
       setRegisteredEvents(new Set());
     }
   };
@@ -63,6 +78,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("authUser");
   };
 
+  // ... rest of your AuthProvider ...
   const addRegisteredEvent = (eventId) => {
     setRegisteredEvents((prevSet) => new Set(prevSet).add(eventId));
   };

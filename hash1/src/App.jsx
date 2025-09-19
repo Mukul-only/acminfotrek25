@@ -1,4 +1,4 @@
-// src/App.jsx - Updated with forgot password and logout-on-close functionality
+// src/App.jsx - Updated with confirmation alert and logout-on-close functionality
 import React, { useState, useEffect, Suspense } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
@@ -17,7 +17,6 @@ const ForgotPasswordPage = React.lazy(() =>
 );
 const ResetPasswordPage = React.lazy(() => import("./pages/ResetPasswordPage"));
 
-// Loading fallback component
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-screen">
     <div className="w-8 h-8 border-b-2 border-white rounded-full animate-spin"></div>
@@ -42,20 +41,16 @@ function App() {
     const hasLoadedBefore = localStorage.getItem("appInitialLoadComplete");
     return hasLoadedBefore !== "true";
   });
-
   const [fadeOutLoading, setFadeOutLoading] = useState(false);
-
   useEffect(() => {
     if (isLoading) {
       const fadeOutTimer = setTimeout(() => {
         setFadeOutLoading(true);
       }, 5500);
-
       const completeLoadingTimer = setTimeout(() => {
         setIsLoading(false);
         localStorage.setItem("appInitialLoadComplete", "true");
       }, 6000);
-
       return () => {
         clearTimeout(fadeOutTimer);
         clearTimeout(completeLoadingTimer);
@@ -63,35 +58,25 @@ function App() {
     }
   }, [isLoading]);
 
-  // ✅ ADDED: Logout on browser/tab close functionality
-  useEffect(() => {
-    const handleTabClose = () => {
-      // IMPORTANT: Adjust 'authToken' to the key you use to store the JWT in localStorage
-      const token = localStorage.getItem("authToken");
-
-      if (token) {
-        const logoutUrl = `${
-          import.meta.env.VITE_API_BASE_URL
-        }/api/auth/logout`;
-
-        // Use navigator.sendBeacon for reliable background requests on unload.
-        // It's designed for this exact purpose.
-        const headers = { type: "application/json" };
-        const blob = new Blob([JSON.stringify({ token })], headers);
-        navigator.sendBeacon(logoutUrl, blob);
-
-        console.log("Logout signal sent to the server on tab close.");
-      }
-    };
-
-    // Add the event listener when the component mounts
-    window.addEventListener("beforeunload", handleTabClose);
-
-    // Remove the event listener when the component unmounts (cleanup)
-    return () => {
-      window.removeEventListener("beforeunload", handleTabClose);
-    };
-  }, []); // The empty dependency array ensures this effect runs only once
+  // useEffect(() => {
+  //   const handleTabClose = (event) => {
+  //     const token = localStorage.getItem("authToken");
+  //     if (token) {
+  //       // event.preventDefault();
+  //       event.returnValue = "";
+  //       const logoutUrl = `${
+  //         import.meta.env.VITE_API_BASE_URL
+  //       }/api/auth/beacon-signout`;
+  //       const headers = { type: "application/json" };
+  //       const blob = new Blob([JSON.stringify({ token: token })], headers);
+  //       navigator.sendBeacon(logoutUrl, blob);
+  //     }
+  //   };
+  //   window.addEventListener("beforeunload", handleTabClose);
+  //   return () => {
+  //     window.removeEventListener("beforeunload", handleTabClose);
+  //   };
+  // }, []);
 
   if (isLoading) {
     return (

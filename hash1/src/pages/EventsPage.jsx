@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from "react";
 import Header from "../components/Header";
 import Wrapper from "../util/Wrapper";
 import EventCard from "../components/EventCard";
+import StarryBackground from "../components/StarryBackground";
 import All from "../assets/all.svg?react";
 import Ball from "../assets/ball.svg?react";
 import Laptop from "../assets/laptop.svg?react";
@@ -14,7 +15,7 @@ const EventsPage = () => {
 
   useEffect(() => {
     if (!document.body.classList.contains("cosmic-body-active")) {
-      document.body.style.backgroundColor = "#111827";
+      document.body.style.backgroundColor = "#0f172a"; // Updated to match starry bg
       document.body.style.overflow = "auto";
     }
 
@@ -70,11 +71,11 @@ const EventsPage = () => {
       <ButtonComponent
         {...buttonProps}
         onClick={() => setFilter(filterType)}
-        className={`px-4 py-2 sm:px-8 sm:py-2 rounded-full gap-2 text-xs sm:text-base font-medium flex items-center justify-center transition-all duration-200 ease-in-out cursor-pointer border border-bdr
+        className={`px-4 py-2 sm:px-8 sm:py-2 rounded-full gap-2 text-xs sm:text-base font-medium flex items-center justify-center transition-all duration-200 ease-in-out cursor-pointer border border-slate-600/50 backdrop-blur-sm
           ${
             currentFilter === filterType
-              ? "bg-white text-gray-900 shadow-md"
-              : "text-txt hover:bg-neutral-700 hover:text-white"
+              ? "bg-white/90 text-gray-900 shadow-md backdrop-blur-sm"
+              : "text-white/90 hover:bg-white/10 hover:text-white border-white/20"
           }`}
       >
         {icon}
@@ -85,8 +86,11 @@ const EventsPage = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen text-white">
-        <div className="w-12 h-12 border-b-2 border-white rounded-full animate-spin"></div>
+      <div className="relative min-h-screen">
+        <StarryBackground />
+        <div className="relative z-10 flex items-center justify-center min-h-screen text-white">
+          <div className="w-12 h-12 border-b-2 border-white rounded-full animate-spin"></div>
+        </div>
       </div>
     );
   }
@@ -99,8 +103,12 @@ const EventsPage = () => {
   const MotionDiv = motion?.motion?.div || "div";
 
   return (
-    <div className="relative">
-      <div className="absolute inset-0 min-h-screen overflow-y-auto text-white bg-black/30">
+    <div className="relative min-h-screen">
+      {/* Starry Background */}
+      <StarryBackground />
+
+      {/* Content Overlay */}
+      <div className="relative z-10 min-h-screen text-white">
         <Header />
         <Wrapper>
           <MotionDiv
@@ -123,8 +131,10 @@ const EventsPage = () => {
                   }
                 : {})}
             >
-              <h1 className="mb-3 text-4xl font-bold sm:text-5xl">EVENTS</h1>
-              <p className="max-w-2xl mx-auto text-sm leading-snug text-txt sm:text-base">
+              <h1 className="mb-3 text-4xl font-bold text-white sm:text-5xl drop-shadow-lg">
+                EVENTS
+              </h1>
+              <p className="max-w-2xl mx-auto text-sm leading-snug text-white/80 sm:text-base drop-shadow-md">
                 Welcome to INFOTREK'25, presented by the ACM Club. Browse
                 through a range of technical and non-technical events and
                 register to be part of the excitement. Pick your interests, join
@@ -174,7 +184,7 @@ const EventsPage = () => {
                     variants: fadeUp,
                   }
                 : {})}
-              className="mb-8 text-xs text-txt sm:text-sm md:mb-10"
+              className="mb-8 text-xs text-white/70 sm:text-sm md:mb-10 drop-shadow-md"
             >
               (click on the events for details)
             </MotionDiv>
@@ -199,7 +209,7 @@ const EventsPage = () => {
                   );
                 })
               ) : (
-                <p className="py-8 text-center text-gray-400 col-span-full">
+                <p className="py-8 text-center text-white/60 col-span-full drop-shadow-md">
                   No events found for this filter.
                 </p>
               )}
