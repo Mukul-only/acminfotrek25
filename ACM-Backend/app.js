@@ -106,5 +106,5 @@ app.use((error, req, res, next) => {
 // Start the server (unchanged)
 app.listen(PORT, "0.0.0.0", () => {
   logger.info("Server is starting...");
-  console.log(`Server is running on port ${PORT}`);
+  logger.info(`Server is running on port ${PORT}`);
 });
