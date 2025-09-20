@@ -53,8 +53,7 @@ const AboutPage = () => {
                 About INFOTREK'25
               </h1>
               <p className="text-xl leading-relaxed text-txt md:text-2xl">
-                The premier techno-cultural fest where innovation meets
-                creativity
+                The premier platform for innovation, technology, and creative problem-solving
               </p>
             </div>
           </div>
@@ -68,9 +67,7 @@ const AboutPage = () => {
             <div className="p-8 border shadow-2xl bg-gradient-to-br from-white/5 to-black/10 rounded-3xl backdrop-blur-sm border-white/10">
               <p className="text-lg leading-relaxed md:text-xl text-txt">
                 INFOTREK'25 is the annual techno-cultural fest organized by the
-                ACM Student Chapter of the Department of Computer Applications
-                (MCA) at National Institute of Technology, Tiruchirappalli
-                (NITT). A celebration of innovation, creativity, and
+                ACM Student Chapter NIT Trichy. A celebration of innovation, creativity, and
                 collaboration, INFOTREK serves as a vibrant platform for
                 students across the country to showcase their technical prowess
                 and artistic talents.

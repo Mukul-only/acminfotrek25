@@ -26,6 +26,7 @@ connectWithRetry();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://acminfotrek25.netlify.app",
+  "https://infotrek25.tech",
 ];
 
 const corsOptions = {

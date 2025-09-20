@@ -135,10 +135,9 @@ const EventsPage = () => {
                 EVENTS
               </h1>
               <p className="max-w-2xl mx-auto text-sm leading-snug text-white/80 sm:text-base drop-shadow-md">
-                Welcome to INFOTREK'25, presented by the ACM Club. Browse
-                through a range of technical and non-technical events and
-                register to be part of the excitement. Pick your interests, join
-                the action, and showcase your skills!
+                Welcome to INFOTREK'25, presented by the ACM Student Chapter NITT. 
+                Explore a range of technical and non-technical events, register to be part of the excitement, 
+                and compete for exciting prizes while showcasing your skills.
               </p>
             </MotionDiv>
 
