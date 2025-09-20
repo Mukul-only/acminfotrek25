@@ -246,7 +246,7 @@ const ContactPage = () => {
                       type={field === "email" ? "email" : "text"}
                       name={field}
                       required
-                      value={(formData)[field]}
+                      value={formData[field]}
                       onChange={handleChange}
                       className="w-full px-4 py-3 text-white transition-all border bg-white/5 border-white/20 rounded-xl placeholder-neutral-400 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20"
                       placeholder={`Enter your ${field}`}
@@ -380,6 +380,11 @@ const ContactPage = () => {
                   question: "What is the registration fee?",
                   answer:
                     "There is no registration fee — participation is completely free!",
+                },
+                {
+                  question: "Are there prizes for the competitions?",
+                  answer:
+                    "Yes, winners of various events will receive prizes. Details will be announced on the event pages.",
                 },
               ].map((faq, index) => (
                 <div
