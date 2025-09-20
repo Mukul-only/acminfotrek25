@@ -56,7 +56,7 @@ app.use(bodyParser.json());
 // --- END: MODIFIED SECTION ---
 
 // Health check route (unchanged)
-app.get("/health", async (req, res) => {
+app.get("/api/health", async (req, res) => {
   try {
     const mongoose = await import("mongoose");
     const dbState = mongoose.default.connection.readyState;
