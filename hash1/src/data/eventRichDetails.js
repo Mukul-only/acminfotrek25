@@ -45,11 +45,11 @@ export const eventRichDetails = [
   },
   {
     id: "66817b2f3a4b5c6d7e8f9a02",
-    title: "Type Racer",
+    title: "TypEclipse",
     detailsImage: "/assets/events/type-racer.webp",
     tagline: "If you can type, you can race!",
     introduction:
-      "Type Racer is a single-player typing competition where participants must type a given paragraph as quickly and accurately as possible. The twist? There are checkpoints placed throughout the text, and any mistake past a checkpoint forces you to restart from that checkpoint.", // Renamed from 'description' to avoid confusion with eventsData.js's description
+      "TypEclipse is a single-player typing competition where participants must type a given paragraph as quickly and accurately as possible. The twist? There are checkpoints placed throughout the text, and any mistake past a checkpoint forces you to restart from that checkpoint.", // Renamed from 'description' to avoid confusion with eventsData.js's description
     durationDetails: {
       date: "T.B.A",
       time: "T.B.A",
@@ -266,11 +266,11 @@ export const eventRichDetails = [
   },
   {
     id: "66817b2f3a4b5c6d7e8f9a09",
-    title: "CS Quiz",
+    title: "Stellar Quest",
     detailsImage: "/assets/events/cs-quiz.webp",
     tagline: "Think. Solve. Win. 💡",
     introduction:
-      "CS Quiz is a fast-paced, single-player technical quiz that tests your knowledge across various domains of computer science — from algorithms to databases, OS, networks, and more. Hosted on HackerEarth or a similar online platform, it’s your chance to prove your CS fundamentals in a competitive environment.",
+      "Stellar Quest is a fast-paced, single-player technical quiz that tests your knowledge across various domains of computer science — from algorithms to databases, OS, networks, and more. Hosted on HackerEarth or a similar online platform, it’s your chance to prove your CS fundamentals in a competitive environment.",
     durationDetails: {
       date: "T.B.A",
       time: "T.B.A",

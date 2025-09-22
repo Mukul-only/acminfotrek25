@@ -13,7 +13,7 @@ export const events = [
   },
   {
     id: "66817b2f3a4b5c6d7e8f9a02", // Changed from 2
-    title: "Type racer",
+    title: "TypEclipse",
     image: "/assets/events/type-racer.webp",
     eventType: "non-tech",
     playerMode: "single player",
@@ -63,7 +63,7 @@ export const events = [
   },
   {
     id: "66817b2f3a4b5c6d7e8f9a09", // Changed from 9
-    title: "CS Quiz",
+    title: "Stellar Quest",
     image: "/assets/events/cs-quiz.webp",
     eventType: "technical",
     playerMode: "single player",
