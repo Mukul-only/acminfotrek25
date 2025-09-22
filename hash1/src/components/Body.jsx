@@ -27,7 +27,7 @@ const Body = (props) => {
             24th ,2025
           </h1>
           <p className="text-xs font-light lg:text-xl xl:text-lg 2xl:text-xl text-a">
-            Nit, trichy
+            NIT, trichy
           </p>
         </div>
       </div>

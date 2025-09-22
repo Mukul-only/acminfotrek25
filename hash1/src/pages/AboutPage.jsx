@@ -32,29 +32,36 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen text-white bg-background">
+    <div className="min-h-screen bg-background text-white">
       <Header />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10"></div>
-        <div className="absolute w-32 h-32 rounded-full top-20 left-10 bg-blue-500/5 blur-xl"></div>
-        <div className="absolute w-40 h-40 rounded-full bottom-10 right-20 bg-purple-500/5 blur-xl"></div>
+        {/* Cosmic background accents */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 via-purple-800/10 to-black/30"></div>
+        <div className="absolute w-48 h-48 rounded-full top-24 left-12 bg-blue-500/10 blur-3xl"></div>
+        <div className="absolute w-64 h-64 rounded-full bottom-16 right-24 bg-purple-500/10 blur-3xl"></div>
 
         <Wrapper>
-          <div className="relative px-3 py-16 md:py-24">
+          <div className="relative px-4 py-20 md:py-24">
             <div className="max-w-4xl mx-auto text-center">
-              <div className="flex justify-center mb-6">
-                <div className="p-4 border bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl backdrop-blur-sm border-white/10">
-                  <RocketLaunchIcon className="w-12 h-12 text-blue-400" />
+              <div className="flex justify-center mb-8">
+                <div className="p-6 border bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full backdrop-blur-md border-white/10 shadow-lg">
+                  <RocketLaunchIcon className="w-14 h-14 text-blue-300" />
                 </div>
               </div>
-              <h1 className="mb-6 text-5xl font-bold text-transparent md:text-7xl bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text">
+              <h1 className="mb-6 text-5xl font-extrabold text-transparent md:text-7xl bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text tracking-wide">
                 About INFOTREK'25
               </h1>
+<<<<<<< HEAD
               <p className="text-xl leading-relaxed text-txt md:text-2xl">
                 The premier of an inter departmental technical fest where
                 innovation meets creativity
+=======
+              <p className="text-lg leading-relaxed md:text-2xl max-w-2xl mx-auto text-neutral-300">
+                The premier platform for innovation, technology, and creative
+                problem-solving
+>>>>>>> 93c9016efe506db7c253dcaf974f4f5a1eb32511
               </p>
             </div>
           </div>
@@ -62,11 +69,12 @@ const AboutPage = () => {
       </div>
 
       <Wrapper>
-        <div className="px-3 pb-16">
+        <div className="px-4 pb-20">
           {/* Main Description Card */}
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="p-8 border shadow-2xl bg-gradient-to-br from-white/5 to-black/10 rounded-3xl backdrop-blur-sm border-white/10">
+          <div className="max-w-4xl mx-auto mb-20">
+            <div className="p-10 border shadow-2xl bg-gradient-to-br from-white/5 to-black/20 rounded-3xl backdrop-blur-md border-white/10">
               <p className="text-lg leading-relaxed md:text-xl text-txt">
+<<<<<<< HEAD
                 INFOTREK'25 is the annual inter departmental technical fest
                 organized by the ACM Student Chapter of the Department of
                 Computer Applications (MCA) at National Institute of Technology,
@@ -74,20 +82,26 @@ const AboutPage = () => {
                 and collaboration, INFOTREK serves as a vibrant platform for
                 students across the country to showcase their technical prowess
                 and artistic talents.
+=======
+                INFOTREK'25 is the annual techno-cultural fest organized by the
+                ACM Student Chapter NIT Trichy. A celebration of innovation,
+                creativity, and collaboration, INFOTREK serves as a vibrant
+                platform for students across the country to showcase their
+                technical prowess and artistic talents.
+>>>>>>> 93c9016efe506db7c253dcaf974f4f5a1eb32511
               </p>
             </div>
           </div>
 
-          {/* Sections Grid */}
-          <div className="max-w-6xl mx-auto space-y-16">
+          <div className="max-w-6xl mx-auto space-y-20">
             {/* Mission Section */}
             <div className="grid items-center gap-12 md:grid-cols-2">
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="p-3 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl">
-                    <LightBulbIcon className="w-8 h-8 text-green-400" />
+                    <LightBulbIcon className="w-9 h-9 text-green-400" />
                   </div>
-                  <h2 className="text-3xl font-bold md:text-4xl text-neutral-200">
+                  <h2 className="text-3xl font-bold md:text-4xl text-neutral-200 tracking-tight">
                     Our Mission
                   </h2>
                 </div>
@@ -101,21 +115,21 @@ const AboutPage = () => {
               </div>
               <div className="relative">
                 <div className="p-8 border bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-3xl border-green-500/20">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-4 text-center bg-white/5 rounded-xl">
-                      <CodeBracketIcon className="w-8 h-8 mx-auto mb-2 text-green-400" />
+                  <div className="grid grid-cols-2 gap-6">
+                    <div className="p-4 text-center bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                      <CodeBracketIcon className="w-9 h-9 mx-auto mb-2 text-green-400" />
                       <p className="text-sm text-neutral-300">Innovation</p>
                     </div>
-                    <div className="p-4 text-center bg-white/5 rounded-xl">
-                      <UserGroupIcon className="w-8 h-8 mx-auto mb-2 text-green-400" />
+                    <div className="p-4 text-center bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                      <UserGroupIcon className="w-9 h-9 mx-auto mb-2 text-green-400" />
                       <p className="text-sm text-neutral-300">Collaboration</p>
                     </div>
-                    <div className="p-4 text-center bg-white/5 rounded-xl">
-                      <AcademicCapIcon className="w-8 h-8 mx-auto mb-2 text-green-400" />
+                    <div className="p-4 text-center bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                      <AcademicCapIcon className="w-9 h-9 mx-auto mb-2 text-green-400" />
                       <p className="text-sm text-neutral-300">Learning</p>
                     </div>
-                    <div className="p-4 text-center bg-white/5 rounded-xl">
-                      <SparklesIcon className="w-8 h-8 mx-auto mb-2 text-green-400" />
+                    <div className="p-4 text-center bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                      <SparklesIcon className="w-9 h-9 mx-auto mb-2 text-green-400" />
                       <p className="text-sm text-neutral-300">Creativity</p>
                     </div>
                   </div>
@@ -129,7 +143,7 @@ const AboutPage = () => {
                 <div className="p-8 border bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-3xl border-purple-500/20">
                   <div className="space-y-6 text-center">
                     <TrophyIcon className="w-16 h-16 mx-auto text-purple-400" />
-                    <div className="grid grid-cols-3 gap-4 text-center">
+                    <div className="grid grid-cols-3 gap-6 text-center">
                       <div className="p-4 bg-white/5 rounded-xl">
                         <div className="text-2xl font-bold text-purple-400">
                           500+
@@ -157,9 +171,9 @@ const AboutPage = () => {
               <div className="space-y-6 md:order-2">
                 <div className="flex items-center space-x-4">
                   <div className="p-3 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl">
-                    <StarIcon className="w-8 h-8 text-purple-400" />
+                    <StarIcon className="w-9 h-9 text-purple-400" />
                   </div>
-                  <h2 className="text-3xl font-bold md:text-4xl text-neutral-200">
+                  <h2 className="text-3xl font-bold md:text-4xl text-neutral-200 tracking-tight">
                     Our Legacy
                   </h2>
                 </div>
@@ -171,8 +185,8 @@ const AboutPage = () => {
                   sparked countless ideas, and witnessed the birth of many
                   innovations.
                 </p>
-                <div className="p-4 border-l-4 border-purple-400 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl">
-                  <p className="font-medium text-neutral-200">
+                <div className="p-5 border-l-4 border-purple-400 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl">
+                  <p className="font-medium text-neutral-200 italic">
                     "As we enter INFOTREK'25, we aim to set the bar even higher
                     with new events, bigger challenges, and unforgettable
                     experiences."
@@ -183,11 +197,11 @@ const AboutPage = () => {
 
             {/* Why Attend Section */}
             <div className="space-y-12">
-              <div className="text-center">
-                <h2 className="mb-4 text-4xl font-bold md:text-5xl text-neutral-200">
+              <div className="text-center max-w-3xl mx-auto">
+                <h2 className="mb-6 text-4xl font-extrabold md:text-5xl text-neutral-200 tracking-tight">
                   Why Attend INFOTREK'25?
                 </h2>
-                <p className="text-xl text-txt">
+                <p className="text-lg md:text-xl text-txt">
                   Discover endless opportunities for growth, learning, and
                   networking
                 </p>
@@ -197,13 +211,13 @@ const AboutPage = () => {
                 {features.map((feature, index) => (
                   <div
                     key={index}
-                    className="p-8 transition-all duration-300 border group bg-gradient-to-br from-white/5 to-white/10 rounded-3xl backdrop-blur-sm border-white/10 hover:border-white/20 hover:transform hover:scale-105"
+                    className="p-8 transition-all duration-300 border group bg-gradient-to-br from-white/5 to-white/10 rounded-3xl backdrop-blur-md border-white/10 hover:border-white/20 hover:scale-105"
                   >
                     <div className="space-y-4 text-center">
-                      <div className="p-4 mx-auto transition-transform duration-300 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl w-fit group-hover:scale-110">
+                      <div className="p-5 mx-auto transition-transform duration-300 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-2xl w-fit group-hover:scale-110">
                         <feature.icon className="w-12 h-12 text-blue-400" />
                       </div>
-                      <h3 className="text-xl font-bold text-neutral-200">
+                      <h3 className="text-xl font-semibold text-neutral-200">
                         {feature.title}
                       </h3>
                       <p className="leading-relaxed text-txt">
@@ -214,8 +228,6 @@ const AboutPage = () => {
                 ))}
               </div>
             </div>
-
-            {/* Call to Action */}
           </div>
         </div>
       </Wrapper>

@@ -4,6 +4,7 @@ import User from "../models/users.model.js";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
 import crypto from "crypto";
+import logger from "../utils/logger.js";
 
 dotenv.config();
 
@@ -43,7 +44,7 @@ async function sendEmail(options) {
   const transporter = createTransporter();
 
   try {
-    console.log(`[Email Service] Sending email to ${options.to}`);
+    logger.info(`[Email Service] Sending email to ${options.to}`);
 
     const mailOptions = {
       from: `${process.env.EMAIL_FROM_NAME} <${process.env.EMAIL_FROM}>`,
@@ -54,13 +55,13 @@ async function sendEmail(options) {
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log(
+    logger.info(
       `[Email Service] ✅ Email sent successfully to ${options.to}. Message ID: ${info.messageId}`
     );
 
     return info;
   } catch (error) {
-    console.error(`[Email Service] ❌ Failed to send email:`, error);
+    logger.error(`[Email Service] ❌ Failed to send email:`, error);
     throw new Error("Failed to send email. Please try again.");
   }
 }
@@ -98,7 +99,7 @@ export const requestSignUpOTP = async ({
   password,
 }) => {
   try {
-    console.log(`[requestSignUpOTP] Processing request for: ${email}`);
+    logger.info(`[requestSignUpOTP] Processing request for: ${email}`);
 
     const existing = await User.findOne({
       $or: [{ email }, { username }, { rollNumber }, { mobno }],
@@ -126,10 +127,10 @@ export const requestSignUpOTP = async ({
 
     await sendOTPEmail(email, otp);
 
-    console.log(`[requestSignUpOTP] ✅ OTP sent successfully to ${email}`);
+    logger.info(`[requestSignUpOTP] ✅ OTP sent successfully to ${email}`);
     return { message: "OTP sent to your email address" };
   } catch (error) {
-    console.error(`[requestSignUpOTP] ❌ Error:`, error.message);
+    logger.error(`[requestSignUpOTP] ❌ Error:`, error.message);
     throw error;
   }
 };
@@ -186,13 +187,13 @@ export const handleSignOut = async () => {
 
 export const forgotPasswordService = async (email) => {
   try {
-    console.log(`[forgotPasswordService] Processing request for: ${email}`);
+    logger.info(`[forgotPasswordService] Processing request for: ${email}`);
 
     const user = await User.findOne({ email: email.toLowerCase() });
 
     // ✅ MODIFIED: Check if user exists and throw an error if not.
     if (!user) {
-      console.log(
+      logger.info(
         `[forgotPasswordService] ❌ User not found for email: ${email}`
       );
       throw new Error(
@@ -261,7 +262,7 @@ export const forgotPasswordService = async (email) => {
       `,
     });
 
-    console.log(
+    logger.info(
       `[forgotPasswordService] ✅ Reset email sent successfully to ${email}`
     );
 
@@ -277,7 +278,7 @@ export const forgotPasswordService = async (email) => {
 
 export const resetPasswordService = async (token, newPassword) => {
   try {
-    console.log(
+    logger.info(
       `[resetPasswordService] Processing reset with token: ${token?.substring(
         0,
         8
@@ -309,7 +310,7 @@ export const resetPasswordService = async (token, newPassword) => {
     user.resetPasswordExpires = undefined;
     await user.save();
 
-    console.log(
+    logger.info(
       `[resetPasswordService] ✅ Password reset successful for user: ${user.email}`
     );
 
@@ -318,7 +319,7 @@ export const resetPasswordService = async (token, newPassword) => {
       email: user.email,
     };
   } catch (error) {
-    console.error(`[resetPasswordService] ❌ Error:`, error.message);
+    logger.error(`[resetPasswordService] ❌ Error:`, error.message);
     throw error;
   }
 };

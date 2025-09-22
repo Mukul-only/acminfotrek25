@@ -4,14 +4,54 @@ import Wrapper from "../util/Wrapper";
 
 // Optimized team data with different image sizes
 const teamMembers = [
-  { id: 1, name: "Vanshu Galhotra", imageUrl: "/assets/acm/mai.png" },
-  { id: 2, name: "Ayush Kumar", imageUrl: "/assets/acm/ayush.jpg" },
-  { id: 3, name: "Chirag Sharma", imageUrl: "/assets/acm/Chirag.png" },
-  { id: 4, name: "Muskan Chaurasia", imageUrl: "/assets/acm/muskan.jpg" },
-  { id: 5, name: "Ankita Meena", imageUrl: "/assets/acm/ankita.png" },
-  { id: 6, name: "Tanmoy Roy", imageUrl: "/assets/acm/tanmoy.jpg" },
-  { id: 7, name: "Mukul", imageUrl: "/assets/acm/mukul.jpg" },
-  { id: 8, name: "Shivam Das", imageUrl: "/assets/acm/shivam.jpg" },
+  {
+    id: 1,
+    name: "Vanshu Galhotra",
+    imageUrl: "/assets/acm/mai.png",
+    url: "https://www.linkedin.com/in/vanshugalhotra/",
+  },
+  {
+    id: 2,
+    name: "Ayush Kumar",
+    imageUrl: "/assets/acm/ayush.jpg",
+    url: "https://www.linkedin.com/in/ayush-kumar-2a681a263/",
+  },
+  {
+    id: 3,
+    name: "Chirag Sharma",
+    imageUrl: "/assets/acm/Chirag.png",
+    url: "https://www.linkedin.com/in/chirag-sharma-ba46291ab/",
+  },
+  {
+    id: 4,
+    name: "Muskan Chaurasia",
+    imageUrl: "/assets/acm/muskan.jpg",
+    url: "https://www.linkedin.com/in/muskan-p23m25",
+  },
+  {
+    id: 5,
+    name: "Ankita Meena",
+    imageUrl: "/assets/acm/ankita.png",
+    url: "https://www.linkedin.com/in/ankita-meena-621b7222a",
+  },
+  {
+    id: 6,
+    name: "Tanmoy Roy",
+    imageUrl: "/assets/acm/tanmoy.jpg",
+    url: "https://www.linkedin.com/in/tempewda",
+  },
+  {
+    id: 7,
+    name: "Mukul",
+    imageUrl: "/assets/acm/mukul.jpg",
+    url: "https://www.linkedin.com/in/mukul-7b2344250/",
+  },
+  {
+    id: 8,
+    name: "Shivam Das",
+    imageUrl: "/assets/acm/shivam.jpg",
+    url: "https://www.linkedin.com/in/shivam-das-614b8121b/",
+  },
 ];
 
 // Optimized Image Component with lazy loading and error handling
@@ -71,6 +111,7 @@ const TeamMemberCard = React.memo(({ member, index }) => {
   const memberName = member?.name || "Team Member";
   const memberRole = member?.role || "Office Bearer, ACM Student Chapter NITT";
   const memberImageUrl = member?.imageUrl || "";
+  const memberUrl = member?.url || "#";
 
   const handleMouseEnter = useCallback(() => {
     setIsHovered(true);
@@ -95,6 +136,7 @@ const TeamMemberCard = React.memo(({ member, index }) => {
       style={cardStyles}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={() => window.open(memberUrl, "_blank", "noopener,noreferrer")}
     >
       {/* Simplified background - removed heavy gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
@@ -230,7 +272,7 @@ const TeamPage = () => {
         </div>
 
         {/* Team Grid Section */}
-        <div className="relative py-8 sm:py-12 md:py-20 lg:py-32">
+        <div className="relative py-4 sm:py-12 md:py-20 lg:py-32">
           {/* Section Header */}
           <div className="px-3 mb-12 text-center sm:mb-16 sm:px-0">
             <h2 className="mb-3 text-2xl font-bold sm:text-4xl md:text-5xl text-neutral-200 sm:mb-4">
