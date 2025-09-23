@@ -32,7 +32,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-white">
+    <div className="min-h-screen text-white bg-background">
       <Header />
 
       {/* Hero Section */}
@@ -46,22 +46,16 @@ const AboutPage = () => {
           <div className="relative px-4 py-20 md:py-24">
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex justify-center mb-8">
-                <div className="p-6 border bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full backdrop-blur-md border-white/10 shadow-lg">
-                  <RocketLaunchIcon className="w-14 h-14 text-blue-300" />
+                <div className="p-6 border rounded-full shadow-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-md border-white/10">
+                  <RocketLaunchIcon className="text-blue-300 w-14 h-14" />
                 </div>
               </div>
-              <h1 className="mb-6 text-5xl font-extrabold text-transparent md:text-7xl bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text tracking-wide">
+              <h1 className="mb-6 text-5xl font-extrabold tracking-wide text-transparent md:text-7xl bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text">
                 About INFOTREK'25
               </h1>
-<<<<<<< HEAD
               <p className="text-xl leading-relaxed text-txt md:text-2xl">
                 The premier of an inter departmental technical fest where
                 innovation meets creativity
-=======
-              <p className="text-lg leading-relaxed md:text-2xl max-w-2xl mx-auto text-neutral-300">
-                The premier platform for innovation, technology, and creative
-                problem-solving
->>>>>>> 93c9016efe506db7c253dcaf974f4f5a1eb32511
               </p>
             </div>
           </div>
@@ -74,7 +68,6 @@ const AboutPage = () => {
           <div className="max-w-4xl mx-auto mb-20">
             <div className="p-10 border shadow-2xl bg-gradient-to-br from-white/5 to-black/20 rounded-3xl backdrop-blur-md border-white/10">
               <p className="text-lg leading-relaxed md:text-xl text-txt">
-<<<<<<< HEAD
                 INFOTREK'25 is the annual inter departmental technical fest
                 organized by the ACM Student Chapter of the Department of
                 Computer Applications (MCA) at National Institute of Technology,
@@ -82,13 +75,6 @@ const AboutPage = () => {
                 and collaboration, INFOTREK serves as a vibrant platform for
                 students across the country to showcase their technical prowess
                 and artistic talents.
-=======
-                INFOTREK'25 is the annual techno-cultural fest organized by the
-                ACM Student Chapter NIT Trichy. A celebration of innovation,
-                creativity, and collaboration, INFOTREK serves as a vibrant
-                platform for students across the country to showcase their
-                technical prowess and artistic talents.
->>>>>>> 93c9016efe506db7c253dcaf974f4f5a1eb32511
               </p>
             </div>
           </div>
@@ -99,9 +85,9 @@ const AboutPage = () => {
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
                   <div className="p-3 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl">
-                    <LightBulbIcon className="w-9 h-9 text-green-400" />
+                    <LightBulbIcon className="text-green-400 w-9 h-9" />
                   </div>
-                  <h2 className="text-3xl font-bold md:text-4xl text-neutral-200 tracking-tight">
+                  <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-neutral-200">
                     Our Mission
                   </h2>
                 </div>
@@ -116,20 +102,20 @@ const AboutPage = () => {
               <div className="relative">
                 <div className="p-8 border bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-3xl border-green-500/20">
                   <div className="grid grid-cols-2 gap-6">
-                    <div className="p-4 text-center bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                      <CodeBracketIcon className="w-9 h-9 mx-auto mb-2 text-green-400" />
+                    <div className="p-4 text-center transition-colors bg-white/5 rounded-xl hover:bg-white/10">
+                      <CodeBracketIcon className="mx-auto mb-2 text-green-400 w-9 h-9" />
                       <p className="text-sm text-neutral-300">Innovation</p>
                     </div>
-                    <div className="p-4 text-center bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                      <UserGroupIcon className="w-9 h-9 mx-auto mb-2 text-green-400" />
+                    <div className="p-4 text-center transition-colors bg-white/5 rounded-xl hover:bg-white/10">
+                      <UserGroupIcon className="mx-auto mb-2 text-green-400 w-9 h-9" />
                       <p className="text-sm text-neutral-300">Collaboration</p>
                     </div>
-                    <div className="p-4 text-center bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                      <AcademicCapIcon className="w-9 h-9 mx-auto mb-2 text-green-400" />
+                    <div className="p-4 text-center transition-colors bg-white/5 rounded-xl hover:bg-white/10">
+                      <AcademicCapIcon className="mx-auto mb-2 text-green-400 w-9 h-9" />
                       <p className="text-sm text-neutral-300">Learning</p>
                     </div>
-                    <div className="p-4 text-center bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                      <SparklesIcon className="w-9 h-9 mx-auto mb-2 text-green-400" />
+                    <div className="p-4 text-center transition-colors bg-white/5 rounded-xl hover:bg-white/10">
+                      <SparklesIcon className="mx-auto mb-2 text-green-400 w-9 h-9" />
                       <p className="text-sm text-neutral-300">Creativity</p>
                     </div>
                   </div>
@@ -171,9 +157,9 @@ const AboutPage = () => {
               <div className="space-y-6 md:order-2">
                 <div className="flex items-center space-x-4">
                   <div className="p-3 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl">
-                    <StarIcon className="w-9 h-9 text-purple-400" />
+                    <StarIcon className="text-purple-400 w-9 h-9" />
                   </div>
-                  <h2 className="text-3xl font-bold md:text-4xl text-neutral-200 tracking-tight">
+                  <h2 className="text-3xl font-bold tracking-tight md:text-4xl text-neutral-200">
                     Our Legacy
                   </h2>
                 </div>
@@ -186,7 +172,7 @@ const AboutPage = () => {
                   innovations.
                 </p>
                 <div className="p-5 border-l-4 border-purple-400 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl">
-                  <p className="font-medium text-neutral-200 italic">
+                  <p className="italic font-medium text-neutral-200">
                     "As we enter INFOTREK'25, we aim to set the bar even higher
                     with new events, bigger challenges, and unforgettable
                     experiences."
@@ -197,8 +183,8 @@ const AboutPage = () => {
 
             {/* Why Attend Section */}
             <div className="space-y-12">
-              <div className="text-center max-w-3xl mx-auto">
-                <h2 className="mb-6 text-4xl font-extrabold md:text-5xl text-neutral-200 tracking-tight">
+              <div className="max-w-3xl mx-auto text-center">
+                <h2 className="mb-6 text-4xl font-extrabold tracking-tight md:text-5xl text-neutral-200">
                   Why Attend INFOTREK'25?
                 </h2>
                 <p className="text-lg md:text-xl text-txt">
