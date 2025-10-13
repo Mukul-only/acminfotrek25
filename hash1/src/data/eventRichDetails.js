@@ -59,7 +59,7 @@ export const eventRichDetails = [
     formatAndRules: [
       "Participants will be given a pre-defined paragraph to type.",
       "Checkpoints are placed after every few words or sentences.",
-      "If a player makes a mistake, they are send back to the last checkpoint.",
+      "If a player makes a mistake, they are sent back to the last checkpoint.",
       "The fastest participant to complete the full paragraph correctly wins!",
     ],
     judgingCriteria: [
@@ -119,7 +119,6 @@ export const eventRichDetails = [
     ],
     prizesAndPerks: [
       "Prizes for the top 3 fastest and funniest teams!",
-      "Participation certificates for all.",
       "A light-hearted event to boost creativity, laughter, and bonding.",
     ],
     whyRegister: [
@@ -139,9 +138,9 @@ export const eventRichDetails = [
       "BackTrack is a technical single-player event where participants are challenged to deduce hidden logic behind given input-output pairs. Players must identify the underlying pattern and write code that mimics the observed behavior. The participant who deciphers the most patterns with accurate code in the shortest time wins.",
     durationDetails: {
       date: "T.B.A",
-      time: "T.B.A",
+      time: "90 mins",
       duration: "Varies based on number of problems and time limit",
-      platform: "Online via Web Platform and hackerrank/hackerearth",
+      platform: "Custom Web Platform + HackerEarth",
     },
     formatAndRules: [
       "Single-player event — individual participation only.",
@@ -254,7 +253,6 @@ export const eventRichDetails = [
     ],
     prizesAndPerks: [
       "Exciting prizes for winning teams.",
-      "Participation certificates for all teams.",
       "Opportunity to showcase frontend skills in a competitive setting.",
     ],
     whyRegister: [
@@ -282,12 +280,13 @@ export const eventRichDetails = [
       "Participants will answer a set of multiple-choice and/or short-answer questions.",
       "Questions will cover a wide range of CS topics like Data Structures, Algorithms, Operating Systems, DBMS, Computer Networks, and more.",
       "Each question will have a time limit or overall timed session.",
-      "No external help or collaboration allowed — strict academic honesty expected.",
+      "No AI, online searching, or external help is allowed - let your skills shine!",
     ],
     judgingCriteria: [
-      "Number of correct answers.",
-      "Time taken to complete the quiz.",
-      "Tie-breakers may be applied based on accuracy and speed.",
+      "There is no partial marking — you must pass all test cases to get points for a problem.",
+      "There is no negative penalty for wrong submissions.",
+      "The participant who solves the most problems will be the winner.",
+      "In case of a tie, the submission time will be used as the tiebreaker."
     ],
     whoCanParticipate: [
       "Open to all students interested in computer science.",
@@ -296,7 +295,6 @@ export const eventRichDetails = [
     ],
     prizesAndPerks: [
       "Exciting prizes for top scorers.",
-      "Participation certificates for all.",
       "Bragging rights as the ultimate CS brain!",
     ],
     whyRegister: [
@@ -354,7 +352,7 @@ export const eventRichDetails = [
           "Each team starts with the first puzzle.",
           "The solution to each puzzle reveals the next campus location.",
           "Teams must physically go to the correct spot to collect the next clue.",
-          "No external help (internet/phones) is allowed during the hunt.",
+          "External help (internet/phones) is allowed during the hunt.",
           "The first team to solve the final puzzle and reach the destination wins.",
         ],
         judgingCriteria: [
@@ -367,11 +365,11 @@ export const eventRichDetails = [
     whoCanParticipate: [
       "Open to all students — anyone with a knack for puzzles, logic, and adventure can join!",
       "Team event (team-based participation only).",
+      "Team of exactly 3 members.",
       "No prior experience required — just bring your brainpower and energy!",
     ],
     prizesAndPerks: [
       "Exciting prizes for the winning teams.",
-      "Participation certificates for all.",
       "A fun and challenging experience combining logic, speed, and adventure.",
     ],
     whyRegister: [
@@ -415,7 +413,6 @@ export const eventRichDetails = [
     ],
     prizesAndPerks: [
       "Exciting prizes for top performers.",
-      "Participation certificates for all.",
       "Fun, engaging non-technical competition.",
     ],
     whyRegister: [
