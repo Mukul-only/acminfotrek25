@@ -6,9 +6,9 @@ import Wrapper from "../util/Wrapper";
 const teamMembers = [
   {
     id: 1,
-    name: "Vanshu Galhotra",
-    imageUrl: "/assets/acm/mai.png",
-    url: "https://www.linkedin.com/in/vanshugalhotra/",
+    name: "Ankita Meena",
+    imageUrl: "/assets/acm/ankita.png",
+    url: "https://www.linkedin.com/in/ankita-meena-621b7222a",
   },
   {
     id: 2,
@@ -24,33 +24,33 @@ const teamMembers = [
   },
   {
     id: 4,
-    name: "Muskan Chaurasia",
-    imageUrl: "/assets/acm/muskan.jpg",
-    url: "https://www.linkedin.com/in/muskan-p23m25",
-  },
-  {
-    id: 5,
-    name: "Ankita Meena",
-    imageUrl: "/assets/acm/ankita.png",
-    url: "https://www.linkedin.com/in/ankita-meena-621b7222a",
-  },
-  {
-    id: 6,
-    name: "Tanmoy Roy",
-    imageUrl: "/assets/acm/tanmoy.jpg",
-    url: "https://www.linkedin.com/in/tempewda",
-  },
-  {
-    id: 7,
     name: "Mukul",
     imageUrl: "/assets/acm/mukul.jpg",
     url: "https://www.linkedin.com/in/mukul-7b2344250/",
   },
   {
-    id: 8,
+    id: 5,
+    name: "Muskan Chaurasia",
+    imageUrl: "/assets/acm/muskan.jpg",
+    url: "https://www.linkedin.com/in/muskan-p23m25",
+  },
+  {
+    id: 6,
     name: "Shivam Das",
     imageUrl: "/assets/acm/shivam.jpg",
     url: "https://www.linkedin.com/in/shivam-das-614b8121b/",
+  },
+  {
+    id: 7,
+    name: "Tanmoy Roy",
+    imageUrl: "/assets/acm/tanmoy.jpg",
+    url: "https://www.linkedin.com/in/tempewda",
+  },
+  {
+    id: 8,
+    name: "Vanshu Galhotra",
+    imageUrl: "/assets/acm/mai.png",
+    url: "https://www.linkedin.com/in/vanshugalhotra/",
   },
 ];
 
