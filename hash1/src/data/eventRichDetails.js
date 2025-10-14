@@ -1,14 +1,14 @@
 export const eventRichDetails = [
   {
-    id: "1",
+    id: "66817b2f3a4b5c6d7e8f9a01",
     title: "Algorithmia",
     detailsImage: "/assets/events/algorithma.webp",
     tagline: "Think. Code. Conquer.",
     introduction:
       "Algorithmia is a technical coding competition where participants will be given 5 programming questions to solve on the HackerEarth platform. You'll have 90 minutes to solve as many as you can – so manage your time wisely, think strategically, and let your code do the talking.", // Renamed from 'description' to avoid confusion with eventsData.js's description
     durationDetails: {
-      date: "T.B.A",
-      time: "T.B.A",
+      date: "24 October 2025",
+      time: "6:30 PM - 8:00 PM",
       duration: "90 minutes",
       platform: "HackerEarth",
     },
@@ -31,7 +31,7 @@ export const eventRichDetails = [
       "Beginners to advanced coders – everyone is welcome!",
     ],
     prizesAndPerks: [
-      "Prizes money worth Rs 3000",
+      "Cash Prizes and certificates for top performers!",
       "Bragging rights for making it to the leaderboard!",
     ],
     whyRegister: [
@@ -43,16 +43,16 @@ export const eventRichDetails = [
     concludingTagline: "Code your way to the top in Algorithmia!",
   },
   {
-    id: "2",
+    id: "66817b2f3a4b5c6d7e8f9a11",
     title: "Crypt of the NecroDancer!",
     detailsImage: "/assets/events/crypt-necrodancer.webp",
     tagline: "Move to the beat. Fight to survive.",
     introduction:
-      "Crypt of the NecroDancer is a roguelike rhythm game that blends dungeon exploration with beat-matching mechanics. Players explore dungeons while syncing their movements and actions to the rhythm of the soundtrack composed by Danny Baranowsky. Success depends on learning the rhythmic patterns of enemies and timing every action to the beat.",
+      "Crypt of the NecroDancer is a rhythm-powered roguelike where you explore dungeons and move to the beat! Time your every step and attack perfectly to conquer enemies and groove your way to victory!",
     durationDetails: {
-      date: "T.B.A",
-      time: "T.B.A",
-      duration: "Varies (based on gameplay)",
+      date: "24 October 2025",
+      time: "10:00 PM - 10:45 PM",
+      duration: "45 minutes",
       platform: "Off-site (play on personal systems)",
     },
     formatAndRules: [
@@ -73,7 +73,7 @@ export const eventRichDetails = [
       "Best suited for rhythm game enthusiasts and quick learners.",
     ],
     prizesAndPerks: [
-      "Prizes money worth Rs 1000",
+      "Cash Prizes and certificates for top performers!",
       "Fun, engaging non-technical competition.",
     ],
     whyRegister: [
@@ -84,16 +84,16 @@ export const eventRichDetails = [
     concludingTagline: "Feel the rhythm. Conquer the dungeon!",
   },
   {
-    id: "3",
+    id: "66817b2f3a4b5c6d7e8f9a05",
     title: "BackTrack",
     detailsImage: "/assets/events/reverse-engineering.webp",
     tagline: "Decode the Logic. Master the Machine.",
     introduction:
-      "BackTrack is a technical single-player event where participants are challenged to deduce hidden logic behind given input-output pairs. Players must identify the underlying pattern and write code that mimics the observed behavior. The participant who deciphers the most patterns with accurate code in the shortest time wins.",
+      "BackTrack is a single player coding challenge where you decode the hidden logic behind mysterious input/output pairs. Crack the pattern, code the solution, and race against time to prove your analytical brilliance!",
     durationDetails: {
-      date: "T.B.A",
-      time: "90 mins",
-      duration: "Varies based on number of problems and time limit",
+      date: "25 October 2025",
+      time: "09:30 AM - 10:30 AM",
+      duration: "60 minutes",
       platform: "Custom Web Platform + HackerEarth",
     },
     formatAndRules: [
@@ -116,7 +116,7 @@ export const eventRichDetails = [
       "Ideal for coders who love logic, patterns, and analytical challenges.",
     ],
     prizesAndPerks: [
-      "Prizes money worth Rs 3000",
+      "Cash Prizes and certificates for top performers!",
       "A great opportunity to showcase your reverse thinking and coding skills.",
     ],
     whyRegister: [
@@ -128,17 +128,17 @@ export const eventRichDetails = [
     concludingTagline: "Can you crack the code behind the code?",
   },
   {
-    id: "4",
+    id: "66817b2f3a4b5c6d7e8f9a03",
     title: "Emoji Charades",
     detailsImage: "/assets/events/emoji-charades.webp",
     tagline: "Can your team emoji its way to victory?",
     introduction:
-      "In Emoji Charades, two players team up — one player receives a list of movie titles and must describe each movie using only emojis. No words allowed! Their teammate must then guess the movie title based solely on the emoji clues. It’s a test of imagination, quick thinking, and emoji brilliance",
+      "Emoji Charades is a fast paced two-player game where one player describes movies using only emojis, and the other must guess the title! It’s all about creativity, teamwork, and emoji genius!",
     durationDetails: {
-      date: "T.B.A",
-      time: "T.B.A",
-      duration: "30–45 minutes per team, depending on rounds",
-      platform: "Online via Web Platform",
+      date: "25 October 2025",
+      time: "11:00 AM - 11:30 AM",
+      duration: "30 minutes",
+      platform: "Custom Web Platform",
     },
     formatAndRules: [
       "Team Size: 2 players per team.",
@@ -160,7 +160,7 @@ export const eventRichDetails = [
       "No need to be a movie buff — just know your emojis and enjoy teamwork!",
     ],
     prizesAndPerks: [
-      "Prizes money worth Rs 1000",
+      "Cash Prizes and certificates for top performers!",
       "A light-hearted event to boost creativity, laughter, and bonding.",
     ],
     whyRegister: [
@@ -172,18 +172,18 @@ export const eventRichDetails = [
     concludingTagline: "Speak fluent Emoji – Guess it right, win it bright! 🎉",
   },
   {
-    id: "5",
+    id: "66817b2f3a4b5c6d7e8f9a10",
     title: "Treasure Hunt",
     detailsImage: "/assets/events/treasure-hunt.webp",
     tagline: "The Ultimate Puzzle Challenge",
     introduction:
       "Treasure Hunt is a thrilling multi-round team-based event that challenges both your brain and your legs! Round 1 takes place online, where teams solve logic-based puzzles to unlock folders as fast as possible. Round 2 moves the action offline with a classic treasure hunt across the NIT Trichy campus. Only the sharpest minds and fastest feet will reach the final treasure!",
     durationDetails: {
-      date: "T.B.A",
-      time: "T.B.A",
-      duration: "Varies per round",
+      date: "25 October 2025",
+      time: "Round 1: 12:00 AM - 12:30 PM | Round 2: 4:30 PM - 7:00 PM",
+      duration: "Round 1: 30 minutes | Round 2: 2.5 hours",
       platform:
-        "Round 1: Online via Web Platform | Round 2: On-campus (NIT Trichy)",
+        "Round 1: Custom Web Platform | Round 2: On-campus (NIT Trichy)",
     },
     rounds: [
       {
@@ -191,19 +191,15 @@ export const eventRichDetails = [
         roundName: "Treasure Hunt Round 1",
         tagline: "Treasure Hunt Round 1",
         introduction:
-          "treasure hunt round 1 is a thrilling team-based event where players must unlock a series of folders. Each folder is locked behind a unique question, and players must answer correctly to proceed. The team that unlocks the most folders in the least amount of time wins this round!",
+          "Round 1 is a team-based challenge with time pressure. There will be questions related to the NITT campus, and the teams that respond the fastest and most accurately will move forward.",
         formatAndRules: [
-          "Team-based event",
-          "Participants are presented with multiple locked folders on the platform.",
-          "Each folder is associated with a unique campus related question or puzzle.",
-          "To unlock a folder, the team must correctly answer the question.",
-          "The game continues until the time limit is reached or all folders are unlocked.",
-          "The team that unlocks the most folders in the shortest time wins.",
+          "Team Size of exactly 3 members.",
+          "Teams will face a set of campus-related questions/puzzles to unlock progress.",
+          "The faster and more accurately they answer, the better their chances of moving ahead.",
         ],
         judgingCriteria: [
-          "Number of folders successfully unlocked.",
-          "Time taken to unlock each folder.",
-          "Accuracy and problem-solving ability.",
+          "Number of questions successfully solved.",
+          "Time taken to solve each question.",
         ],
       },
       {
@@ -213,7 +209,7 @@ export const eventRichDetails = [
         introduction:
           "This round is a classic treasure hunt where your team will physically race to different locations across the NIT Trichy campus. Starting with a puzzle, each answer leads to a specific spot on campus. Solve it, run there, and find the next clue. The cycle continues until you reach the final destination. The first team to finish wins!",
         formatAndRules: [
-          "Team-based participation only.",
+          "Team of exactly 3 members.",
           "Each team starts with the first puzzle.",
           "The solution to each puzzle reveals the next campus location.",
           "Teams must physically go to the correct spot to collect the next clue.",
@@ -223,7 +219,6 @@ export const eventRichDetails = [
         judgingCriteria: [
           "Order of completion — the fastest team wins.",
           "Accuracy in solving puzzles.",
-          "Teamwork and strategy in navigating the hunt.",
         ],
       },
     ],
@@ -234,7 +229,7 @@ export const eventRichDetails = [
       "No prior experience required — just bring your brainpower and energy!",
     ],
     prizesAndPerks: [
-      "Prizes money worth Rs 3000",
+      "Cash Prizes and certificates for top performers!",
       "A fun and challenging experience combining logic, speed, and adventure.",
     ],
     whyRegister: [
@@ -246,38 +241,60 @@ export const eventRichDetails = [
     concludingTagline: "Crack the code. Chase the clues. Claim the treasure!",
   },
   {
-    id: "6",
+    id: "66817b2f3a4b5c6d7e8f9a09",
     title: "Stellar Quest",
     detailsImage: "/assets/events/cs-quiz.webp",
     tagline: "Think. Solve. Win. 💡",
     introduction:
-      "Stellar Quest is a fast-paced, single-player technical quiz that tests your knowledge across various domains of computer science — from algorithms to databases, OS, networks, and more. Hosted on HackerEarth or a similar online platform, it’s your chance to prove your CS fundamentals in a competitive environment.",
+      "Stellar Quest is a fast-paced, single-player technical quiz that tests your knowledge across various domains of computer science — from algorithms to databases, OS, networks, and more. It’s your chance to prove your CS fundamentals in a competitive environment.",
     durationDetails: {
-      date: "T.B.A",
-      time: "T.B.A",
-      duration: "45 minutes to 1 hour",
-      platform: "Online (HackerEarth or equivalent)",
+      date: "26 October 2025",
+      time: "Round 1 - 9:30 AM - 10:00 AM | Round 2 - 10:30 AM - 11:15 AM",
+      duration: "Round 1: 30 minutes | Round 2: 45 minutes",
+      platform: "T.B.A",
     },
-    formatAndRules: [
-      "Single-player event — individual participation only.",
-      "Participants will answer a set of multiple-choice and/or short-answer questions.",
-      "Questions will cover a wide range of CS topics like Data Structures, Algorithms, Operating Systems, DBMS, Computer Networks, and more.",
-      "Each question will have a time limit or overall timed session.",
-      "No AI, online searching, or external help is allowed - let your skills shine!",
-    ],
-    judgingCriteria: [
-      "There is no partial marking — you must pass all test cases to get points for a problem.",
-      "There is no negative penalty for wrong submissions.",
-      "The participant who solves the most problems will be the winner.",
-      "In case of a tie, the submission time will be used as the tiebreaker.",
+    rounds: [
+      {
+        roundNumber: 1,
+        roundName: "Stellar Quest Round 1",
+        tagline: "Stellar Quest: The Hunt Begins",
+        introduction:
+          "Round 1 is a fast-paced team challenge where participants tackle questions from core CS topics. Quick thinking and accuracy will decide who moves ahead.",
+        formatAndRules: [
+          "Participants will answer a set of multiple-choice questions.",
+          "Questions will cover a wide range of CS topics like Data Structures, Algorithms, Operating Systems, DBMS, Computer Networks, and more.",
+          "No AI, online searching, or external help is allowed - let your skills shine!",
+        ],
+        judgingCriteria: [
+          "There is no negative penalty for wrong submissions.",
+          "The participant who solves the most problems will be the winner.",
+          "In case of a tie, the submission time will be used as the tiebreaker.",
+        ],
+      },
+      {
+        roundNumber: 2,
+        roundName: "Stellar Quest Round 2",
+        tagline: "Closer to the Truth, Higher the Glory.",
+        introduction:
+          "In this round, participants will be presented with a series of challenging questions. Teams must apply logical reasoning and critical thinking to get as close to the correct answer as possible. The closer your solution is, the higher your score.",
+        formatAndRules: [
+          "Participants will attempt a set of logic and strategy-based questions.",
+          "Teams must rely on their reasoning and problem-solving skills — external help is not allowed.",
+          "Scoring is based on how close the team's answer is to the correct solution.",
+        ],
+        judgingCriteria: [
+          "Proximity to the correct answer — nearer answers receive higher points.",
+          "Completion within the given time frame.",
+        ],
+      },
     ],
     whoCanParticipate: [
       "Open to all students interested in computer science.",
-      "No team participation — solo players only.",
+      "Team of exactly 2 members.",
       "All you need is a basic understanding of core CS subjects.",
     ],
     prizesAndPerks: [
-      "Prizes money worth Rs 3000",
+      "Cash Prizes and certificates for top performers!",
       "Bragging rights as the ultimate CS brain!",
     ],
     whyRegister: [
@@ -288,19 +305,18 @@ export const eventRichDetails = [
     ],
     concludingTagline: "Know your CS? Prove it.",
   },
-
   {
-    id: "7",
+    id: "66817b2f3a4b5c6d7e8f9a02",
     title: "TypEclipse",
     detailsImage: "/assets/events/type-racer.webp",
     tagline: "If you can type, you can race!",
     introduction:
-      "TypEclipse is a single-player typing competition where participants must type a given paragraph as quickly and accurately as possible. The twist? There are checkpoints placed throughout the text, and any mistake past a checkpoint forces you to restart from that checkpoint.", // Renamed from 'description' to avoid confusion with eventsData.js's description
+      "TypEclipse is a thrilling single-player typing race where speed meets precision! Type the paragraph as fast as you can. But beware: make a mistake past a checkpoint, and you’ll have to restart from it!",
     durationDetails: {
-      date: "T.B.A",
-      time: "T.B.A",
+      date: "25 October 2025",
+      time: "12:45 PM - 1:15 PM",
       duration: "Depends on how fast you type!",
-      platform: "Online",
+      platform: "Custom Web Platform",
     },
     formatAndRules: [
       "Participants will be given a pre-defined paragraph to type.",
@@ -311,15 +327,15 @@ export const eventRichDetails = [
     judgingCriteria: [
       "Time Taken: Total time to type the paragraph correctly.",
       "Accuracy: Typos will not be tolerated — mistakes will send you back.",
-      "Checkpoint System: Maintains fairness and difficulty by enforcing consistent typing.",
     ],
     whoCanParticipate: [
       "Open to all students — no prior experience required!",
       "Solo event — individual participation only.",
       "If you can type, you can race!",
+      "Fun Fact: Even if you don't know touch typing, you can still win!",
     ],
     prizesAndPerks: [
-      "Prizes money worth Rs 1000",
+      "Cash Prizes and certificates for top performers!",
       "A chance to flex your typing skills in front of a live audience!",
     ],
     whyRegister: [
@@ -331,41 +347,39 @@ export const eventRichDetails = [
     concludingTagline: "Ready… Set… Type!",
   },
   {
-    id: "8",
+    id: "66817b2f3a4b5c6d7e8f9a08",
     title: "Replicode",
     detailsImage: "/assets/events/replicode.webp",
     tagline: "Code the design. Match it to perfection.",
     introduction:
-      "An intensive frontend development competition where teams analyze and recreate precise website interfaces using core web technologies. Participants will be given three UI component-based tasks, each with a time limit of 20 minutes, plus an additional 5 minutes before each task to view and understand the target UI. They must architect pixel-perfect replicas using HTML, CSS, and JavaScript while demonstrating clean coding practices, responsive design principles, and functional accuracy. Submissions will be collected at the end as a single zip file via a Google Form. This collaborative 2-member challenge tests visual accuracy, technical implementation skills, and code quality under time constraints with limited external resources.",
+      "RepliCode is a thrilling frontend showdown where participants race to replicate pixel perfect UIs using HTML, CSS, and JavaScript! It’s a test of speed, precision, and coding finesse under intense time pressure!",
     durationDetails: {
-      date: "T.B.A",
-      time: "T.B.A",
-      duration: "1 hour 15 minutes",
+      date: "26 October 2025",
+      time: "11:30 AM - 12:15 PM",
+      duration: "45 minutes",
       platform: "On-site (development systems provided)",
     },
     formatAndRules: [
-      "Each team must consist of exactly two developers.",
-      "Organizers will provide a set of three UI component-based frontend tasks.",
-      "Each task has a time limit of 20 minutes, with an additional 5 minutes before the task to view and understand the component.",
+      "Single-player event — individual participation only.",
+      "Participants will be given a set of frontend challenges to complete within limited time slots.",
       "Teams must complete the given tasks using only HTML, CSS, and JavaScript.",
-      "External libraries or frameworks (Bootstrap, Tailwind, Foundation, etc.) are prohibited unless explicitly permitted.",
-      "Work must be original and completed within the given timeframe.",
-      "At the end, teams must submit their work as a zip file via a Google Form.",
+      "External libraries or frameworks (Bootstrap, Tailwind, Foundation, etc.) are prohibited.",
+      "Use of any external help (internet, AI tools, etc.) is allowed.",
+      "All work must be done during the event and submitted within the given deadline.",
     ],
     judgingCriteria: [
       "Visual fidelity and accuracy to the reference design.",
-      "Responsiveness and adaptability across devices.",
       "Code quality, readability, and structure.",
       "Successful implementation of required functionality.",
       "Time management and completeness within the deadline.",
     ],
     whoCanParticipate: [
       "Open to all students with frontend development knowledge.",
-      "Teams of exactly two members.",
+      "Single-player event — individual participation only.",
       "Best suited for participants skilled in HTML, CSS, and JavaScript.",
     ],
     prizesAndPerks: [
-      "Prizes money worth Rs 3000",
+      "Cash Prizes and certificates for top performers!",
       "Opportunity to showcase frontend skills in a competitive setting.",
     ],
     whyRegister: [
@@ -376,17 +390,17 @@ export const eventRichDetails = [
     concludingTagline: "Design. Develop. Deliver — pixel perfect!",
   },
   {
-    id: "9",
+    id: "66817b2f3a4b5c6d7e8f9a06",
     title: "Destinite",
     detailsImage: "/assets/events/destinite.webp",
     tagline: "Where Potential Meets Opportunity.",
     introduction:
       "Destinite is a prestigious one-on-one interview-based event, where the top performers of INFOTREK are shortlisted and interviewed by a panel. It aims to identify not just technical proficiency, but also communication skills, mindset, and leadership potential. This is where your journey takes a leap forward.",
     durationDetails: {
-      date: "T.B.A",
-      time: "T.B.A",
-      duration: "Each interview lasts around 20–30 minutes",
-      platform: "Offline / Online (based on availability)",
+      date: "26 October 2025",
+      time: "5:00 PM - 8:00 PM",
+      duration: "Varies per candidate",
+      platform: "Offline",
     },
     formatAndRules: [
       "Participation is by invitation only — top performers from INFOTREK will be shortlisted.",
@@ -407,7 +421,7 @@ export const eventRichDetails = [
       "Participation is individual and non-transferable.",
     ],
     prizesAndPerks: [
-      "Prizes money worth Rs 2000",
+      "Cash Prizes and certificates for top performers!",
       "Exclusive recognition for standout performers.",
       "Opportunities for mentorship and future leadership roles.",
     ],
