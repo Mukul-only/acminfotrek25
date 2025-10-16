@@ -5,7 +5,7 @@ export const eventRichDetails = [
     detailsImage: "/assets/events/algorithma.webp",
     tagline: "Think. Code. Conquer.",
     introduction:
-      "Algorithmia is a technical coding competition where participants will be given 5 programming questions to solve on the HackerEarth platform. You'll have 90 minutes to solve as many as you can – so manage your time wisely, think strategically, and let your code do the talking.", // Renamed from 'description' to avoid confusion with eventsData.js's description
+      "Algorithmia is a technical coding competition where participants will be given 5 programming questions to solve. You'll have 90 minutes to solve as many as you can – so manage your time wisely, think strategically, and let your code do the talking.",
     durationDetails: {
       date: "24 October 2025",
       time: "6:30 PM - 8:00 PM",
@@ -13,22 +13,22 @@ export const eventRichDetails = [
       platform: "HackerEarth",
     },
     formatAndRules: [
-      "Participants will face 5 algorithmic and data structure-based questions.",
-      "The questions will range from easy to hard, testing your analytical and problem-solving skills.",
-      "The competition will be hosted on HackerEarth – make sure you have an account and are familiar with the platform.",
-      "You can code in any of the supported programming languages on HackerEarth.",
-      "No plagiarism or external help – let your skills shine!",
+      "Solve 5 algorithmic challenges ranging from easy to hard.",
+      "Test your problem-solving and coding skills under pressure.",
+      "Compete individually on HackerEarth — ensure you have an account ready.",
+      "Code in any supported language on HackerEarth.",
+      "No AI, online searching, or external help is allowed – let your skills shine!",
     ],
     judgingCriteria: [
-      "Accuracy: Correctness of the solution.",
-      "Efficiency: Time and space complexity will matter.",
-      "Partial Scoring: Some problems may offer partial points based on the number of test cases passed.",
-      "In case of a tie, submission time will be considered.",
+      "There is no partial marking — you must pass all test cases to get points for a problem.",
+      "There is no negative penalty for wrong submissions.",
+      "The participant who solves the most problems will be the winner.",
+      "In case of a tie, the submission time will be used as the tiebreaker.",
     ],
     whoCanParticipate: [
       "Open to all students and coding enthusiasts.",
-      "You can participate as an individual.",
-      "Beginners to advanced coders – everyone is welcome!",
+      "Individual participation only.",
+      "Beginners to pros — everyone is welcome!",
     ],
     prizesAndPerks: [
       "Cash Prizes and certificates for top performers!",
@@ -89,7 +89,7 @@ export const eventRichDetails = [
     detailsImage: "/assets/events/reverse-engineering.webp",
     tagline: "Decode the Logic. Master the Machine.",
     introduction:
-      "BackTrack is a single player coding challenge where you decode the hidden logic behind mysterious input/output pairs. Crack the pattern, code the solution, and race against time to prove your analytical brilliance!",
+      "BackTrack is a solo coding challenge where you decode hidden logic from mysterious input/output pairs. Crack patterns, code solutions, and race against time to prove your analytical skills!",
     durationDetails: {
       date: "25 October 2025",
       time: "09:30 AM - 10:30 AM",
@@ -97,18 +97,17 @@ export const eventRichDetails = [
       platform: "Custom Web Platform + HackerEarth",
     },
     formatAndRules: [
-      "Single-player event — individual participation only.",
-      "Participants will be shown a set of inputs and corresponding outputs.",
-      "They must analyze and deduce the logic or transformation applied.",
-      "Players must write code that replicates the output from the given input.",
+      "Solo participation only — no teams allowed.",
+      "Analyze given input/output pairs to deduce the underlying logic.",
+      "Write code that replicates the outputs correctly.",
       "Submissions will be tested against multiple hidden test cases.",
-      "You can attempt multiple challenges — the more you crack, the better your score.",
+      "Attempt as many challenges as you can — more patterns cracked means higher scores.",
     ],
     judgingCriteria: [
       "Number of patterns successfully BackTracked. ",
-      "Correctness and efficiency of submitted code.",
-      "Time of submission — faster solutions gain an edge.",
-      "Code must handle all test cases to be considered valid.",
+      "Partial marking for partially correct solutions.",
+      "There is no negative penalty for wrong submissions.",
+      "In case of a tie, the submission time will be used as the tiebreaker.",
     ],
     whoCanParticipate: [
       "Open to all students with programming and problem-solving skills.",
@@ -152,11 +151,10 @@ export const eventRichDetails = [
     judgingCriteria: [
       "Number of correctly guessed movie names.",
       "Time taken per correct guess.",
-      "Creativity of emoji descriptions.",
     ],
     whoCanParticipate: [
       "Open to all students.",
-      "You must register in a team of 2.",
+      "Teams of exactly 2 players.",
       "No need to be a movie buff — just know your emojis and enjoy teamwork!",
     ],
     prizesAndPerks: [
@@ -177,7 +175,7 @@ export const eventRichDetails = [
     detailsImage: "/assets/events/treasure-hunt.webp",
     tagline: "The Ultimate Puzzle Challenge",
     introduction:
-      "Treasure Hunt is a thrilling multi-round team-based event that challenges both your brain and your legs! Round 1 takes place online, where teams solve logic-based puzzles to unlock folders as fast as possible. Round 2 moves the action offline with a classic treasure hunt across the NIT Trichy campus. Only the sharpest minds and fastest feet will reach the final treasure!",
+      "Treasure Hunt is a thrilling multi-round, team-based event testing your mind and agility! Round 1 is online with logic puzzles to unlock mysteries quickly. Round 2 is an on-campus treasure hunt at NIT Trichy — only the fastest and smartest teams will reach the final treasure!",
     durationDetails: {
       date: "25 October 2025",
       time: "Round 1: 12:00 AM - 12:30 PM | Round 2: 4:30 PM - 7:00 PM",
@@ -191,11 +189,11 @@ export const eventRichDetails = [
         roundName: "Treasure Hunt Round 1",
         tagline: "Treasure Hunt Round 1",
         introduction:
-          "Round 1 is a team-based challenge with time pressure. There will be questions related to the NITT campus, and the teams that respond the fastest and most accurately will move forward.",
+          "Round 1 is a timed, team-based challenge with NITT campus-themed puzzles. Teams that solve fastest and most accurately move on to the next round.",
         formatAndRules: [
-          "Team Size of exactly 3 members.",
-          "Teams will face a set of campus-related questions/puzzles to unlock progress.",
-          "The faster and more accurately they answer, the better their chances of moving ahead.",
+          "Teams of exactly 3 members.",
+          "Solve campus-themed puzzles to unlock progress.",
+          "Speed and accuracy determine your advancement to Round 2.",
         ],
         judgingCriteria: [
           "Number of questions successfully solved.",
@@ -209,12 +207,11 @@ export const eventRichDetails = [
         introduction:
           "This round is a classic treasure hunt where your team will physically race to different locations across the NIT Trichy campus. Starting with a puzzle, each answer leads to a specific spot on campus. Solve it, run there, and find the next clue. The cycle continues until you reach the final destination. The first team to finish wins!",
         formatAndRules: [
-          "Team of exactly 3 members.",
-          "Each team starts with the first puzzle.",
-          "The solution to each puzzle reveals the next campus location.",
-          "Teams must physically go to the correct spot to collect the next clue.",
-          "External help (internet/phones) is allowed during the hunt.",
-          "The first team to solve the final puzzle and reach the destination wins.",
+          "Teams of 3 members.",
+          "Start with the first puzzle; each solution leads to the next location.",
+          "Race across campus to collect clues and reach the final treasure.",
+          "External help (internet/phones) is allowed.",
+          "The fastest team to complete all puzzles wins!",
         ],
         judgingCriteria: [
           "Order of completion — the fastest team wins.",
@@ -233,7 +230,7 @@ export const eventRichDetails = [
       "A fun and challenging experience combining logic, speed, and adventure.",
     ],
     whyRegister: [
-      "Challenge your logical thinking and problem-solving skills in Round 1.",
+      "Challenge your NITT Knowledge and logical thinking skills in Round 1.",
       "Enjoy an adventurous race across the NIT Trichy campus in Round 2.",
       "Strengthen teamwork, strategy, and quick thinking.",
       "Compete for prizes, certificates, and bragging rights!",
@@ -251,7 +248,7 @@ export const eventRichDetails = [
       date: "26 October 2025",
       time: "Round 1 - 9:30 AM - 10:00 AM | Round 2 - 10:30 AM - 11:15 AM",
       duration: "Round 1: 30 minutes | Round 2: 45 minutes",
-      platform: "T.B.A",
+      platform: "Round 1: HackerEarth | Round 2: On-site",
     },
     rounds: [
       {
@@ -261,14 +258,12 @@ export const eventRichDetails = [
         introduction:
           "Round 1 is a fast-paced team challenge where participants tackle questions from core CS topics. Quick thinking and accuracy will decide who moves ahead.",
         formatAndRules: [
-          "Participants will answer a set of multiple-choice questions.",
-          "Questions will cover a wide range of CS topics like Data Structures, Algorithms, Operating Systems, DBMS, Computer Networks, and more.",
-          "No AI, online searching, or external help is allowed - let your skills shine!",
+          "Answer a set of multiple-choice questions covering topics like Data Structures, Algorithms, OS, DBMS, and Networks.",
+          "No AI, internet, or external help allowed — rely on your knowledge.",
         ],
         judgingCriteria: [
-          "There is no negative penalty for wrong submissions.",
-          "The participant who solves the most problems will be the winner.",
-          "In case of a tie, the submission time will be used as the tiebreaker.",
+          "No negative marking for wrong answers.",
+          "Highest score wins; ties broken by submission time.",
         ],
       },
       {
@@ -319,18 +314,15 @@ export const eventRichDetails = [
       platform: "Custom Web Platform",
     },
     formatAndRules: [
-      "Participants will be given a pre-defined paragraph to type.",
-      "Checkpoints are placed after every few words or sentences.",
-      "If a player makes a mistake, they are sent back to the last checkpoint.",
-      "The fastest participant to complete the full paragraph correctly wins!",
+      "Type a pre-defined paragraph as fast as possible.",
+      "Checkpoints are set after a few words or sentences.",
+      "Mistakes past a checkpoint send you back to it.",
+      "The fastest to complete the paragraph correctly wins!",
     ],
-    judgingCriteria: [
-      "Time Taken: Total time to type the paragraph correctly.",
-      "Accuracy: Typos will not be tolerated — mistakes will send you back.",
-    ],
+    judgingCriteria: ["Time taken to type the paragraph correctly."],
     whoCanParticipate: [
       "Open to all students — no prior experience required!",
-      "Solo event — individual participation only.",
+      "Individual participation only.",
       "If you can type, you can race!",
       "Fun Fact: Even if you don't know touch typing, you can still win!",
     ],
@@ -403,10 +395,10 @@ export const eventRichDetails = [
       platform: "Offline",
     },
     formatAndRules: [
-      "Participation is by invitation only — top performers from INFOTREK will be shortlisted.",
-      "Each candidate will undergo a one-on-one interview with a panel.",
-      "The interview will focus on technical strengths, problem-solving abilities, and overall personality.",
-      "Punctuality and professionalism are expected.",
+      "Participation is by invitation only for top INFOTREK performers.",
+      "Each candidate will have a one-on-one interview with a panel.",
+      "Interviews assess technical strengths, problem-solving abilities, and overall personality.",
+      "Punctuality and professionalism are required.",
       "Panel decisions are final and confidential.",
     ],
     judgingCriteria: [
