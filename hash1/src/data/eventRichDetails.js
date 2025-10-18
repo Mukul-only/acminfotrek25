@@ -243,7 +243,7 @@ export const eventRichDetails = [
     detailsImage: "/assets/events/cs-quiz.webp",
     tagline: "Think. Solve. Win. 💡",
     introduction:
-      "Stellar Quest is a fast-paced, single-player technical quiz that tests your knowledge across various domains of computer science — from algorithms to databases, OS, networks, and more. It’s your chance to prove your CS fundamentals in a competitive environment.",
+      "Stellar Quest is a fast-paced, team-based technical quiz that tests your knowledge across various domains of computer science — from algorithms to databases, OS, networks, and more. It’s your chance to prove your CS fundamentals in a competitive environment.",
     durationDetails: {
       date: "26 October 2025",
       time: "Round 1 - 9:30 AM - 10:00 AM | Round 2 - 10:30 AM - 11:15 AM",
